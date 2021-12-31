@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.RoleDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.RoleDo">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="label" property="label" />
+        <result column="remark" property="remark" />
+        <result column="data_scope_dict" property="dataScopeDict" />
+        <result column="create_by" property="createBy" />
+        <result column="create_at" property="createAt" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_at" property="updateAt" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <select id="getRolesByUserId" resultMap="BaseResultMap" parameterType="Long">
+        SELECT r.* FROM sys_role r LEFT JOIN sys_user_role ur ON ur.role_id = r.id
+        WHERE ur.user_id = #{id}
+    </select>
+
+    <select id="getRolesByIds" resultMap="BaseResultMap" parameterType="java.util.List">
+        SELECT * FROM sys_role WHERE id IN
+        <foreach collection="roleIds" item="roleId" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+
+</mapper>

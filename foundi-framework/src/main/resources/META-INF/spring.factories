@@ -1,0 +1,10 @@
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+net.foundi.framework.cache.config.CacheConfig,\
+net.foundi.framework.dao.config.MyBatisConfig,\
+net.foundi.framework.security.config.SecurityConfig, \
+net.foundi.framework.service.config.ServiceConfig, \
+net.foundi.framework.thread.config.ThreadPoolConfig, \
+net.foundi.framework.web.config.WebConfig, \
+net.foundi.framework.tools.config.SwaggerConfig, \
+net.foundi.framework.security.config.CaptchaConfig

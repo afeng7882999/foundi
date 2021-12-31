@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.generator.dao.GenTableDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.generator.entity.domain.GenTableDo">
+        <id column="id" property="id" />
+        <result column="table_name" property="tableName" />
+        <result column="table_comment" property="tableComment" />
+        <result column="table_create_time" property="tableCreateTime" />
+        <result column="table_engine" property="tableEngine" />
+        <result column="table_encoding" property="tableEncoding" />
+        <result column="entity_name" property="entityName" />
+        <result column="module" property="module" />
+        <result column="pack" property="pack" />
+        <result column="front_path" property="frontPath" />
+        <result column="is_sub" property="isSub" />
+        <result column="is_tree" property="isTree" />
+        <result column="tree_id" property="treeId" />
+        <result column="tree_name" property="treeName" />
+        <result column="tree_parent_id" property="treeParentId" />
+        <result column="tree_sort" property="treeSort" />
+        <result column="is_front_edit" property="isFrontEdit" />
+        <result column="is_front_detail" property="isFrontDetail" />
+        <result column="menu_title" property="menuTitle" />
+        <result column="menu_parent_id" property="menuParentId" />
+        <result column="author" property="author" />
+    </resultMap>
+
+    <select id="selectTableInfoByName" parameterType="String" resultType="java.util.HashMap">
+        SELECT table_name, create_time, engine, table_collation, table_comment
+        FROM information_schema.tables
+        WHERE table_schema = (SELECT DATABASE()) AND table_name = #{tableName}
+        ORDER BY create_time DESC
+        LIMIT 1
+    </select>
+
+    <select id="selectTableInfo" resultType="java.util.HashMap" parameterType="java.util.List">
+        SELECT table_name, create_time, engine, table_collation, table_comment
+        FROM information_schema.tables
+        WHERE table_schema = (SELECT DATABASE()) AND table_name IN
+        <foreach collection="tableNames" item="tableName" open="(" separator="," close=")">
+            #{tableName}
+        </foreach>
+        ORDER BY create_time DESC
+    </select>
+
+    <select id="selectTableInfoByPage" resultType="java.util.HashMap">
+        SELECT table_name, create_time, engine, table_collation, table_comment
+        FROM information_schema.tables
+        <where>
+            table_schema = (SELECT DATABASE())
+            <if test="ew.sqlSegment != ''">
+            AND (${ew.sqlSegment})
+            </if>
+        </where>
+    </select>
+
+</mapper>

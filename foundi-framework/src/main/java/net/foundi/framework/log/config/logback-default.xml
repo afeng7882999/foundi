@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <property name="LOG_FILE" value="logs/foundi-admin.log"/>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml" />
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+    <include resource="org/springframework/boot/logging/logback/file-appender.xml" />
+
+    <springProfile name="dev">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE" />
+        </root>
+        <logger name="org.springframework" level="INFO"/>
+        <logger name="org.apache.ibatis" level="INFO" />
+        <logger name="net.foundi" level="DEBUG" />
+    </springProfile>
+
+    <springProfile name="prod">
+        <root level="ERROR">
+            <appender-ref ref="CONSOLE" />
+            <appender-ref ref="FILE" />
+        </root>
+        <logger name="org.springframework" level="ERROR"/>
+        <logger name="net.foundi" level="INFO" />
+    </springProfile>
+
+</included>

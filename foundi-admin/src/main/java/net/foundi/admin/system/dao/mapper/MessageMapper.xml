@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.MessageDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.MessageDo">
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="content" property="content" />
+        <result column="type_dict" property="typeDict" />
+        <result column="sender_id" property="senderId" />
+        <result column="is_group" property="isGroup" />
+        <result column="group_id" property="groupId" />
+        <result column="create_at" property="createAt" />
+    </resultMap>
+
+    <resultMap id="UserMessageResultMap" type="net.foundi.admin.system.entity.domain.UserMessageDo">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="title" jdbcType="VARCHAR" property="title" />
+        <result column="content" jdbcType="VARCHAR" property="content" />
+        <result column="type_dict" jdbcType="VARCHAR" property="typeDict" />
+        <result column="sender_id" jdbcType="BIGINT" property="senderId" />
+        <result column="is_group" jdbcType="BIT" property="isGroup" />
+        <result column="group_id" jdbcType="BIGINT" property="groupId" />
+        <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+        <!-- not exist -->
+        <result column="receiver_id" jdbcType="BIGINT" property="receiverId" />
+        <result column="status_dict" jdbcType="VARCHAR" property="statusDict" />
+    </resultMap>
+
+    <select id="selectPageByUser" resultMap="UserMessageResultMap">
+        SELECT m.*, mh.receiver_id AS receiver_id, mh.status_dict AS status_dict
+        FROM sys_message m LEFT JOIN sys_message_history mh ON m.id = mh.message_id
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+</mapper>

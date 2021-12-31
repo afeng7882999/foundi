@@ -1,0 +1,132 @@
+{"properties": [
+  {
+    "name": "foundi.app.name",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.app.name'"
+  },
+  {
+    "name": "foundi.app.version",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.app.version'"
+  },
+  {
+    "name": "foundi.app.copyrightYear",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.app.copyrightYear'"
+  },
+  {
+    "name": "foundi.app.author",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.app.author'"
+  },
+  {
+    "name": "foundi.app.email",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.app.email'"
+  },
+  {
+    "name": "foundi.web.download-tmp-dir",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.web.download-tmp-dir'"
+  },
+  {
+    "name": "foundi.web.addressEnabled",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.web.addressEnabled'"
+  },
+  {
+    "name": "foundi.web.xss.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.web.xss.enabled'"
+  },
+  {
+    "name": "foundi.web.captcha.type",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.web.captcha.type'"
+  },
+  {
+    "name": "foundi.web.xss.urlPatterns",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.web.xss.urlPatterns'"
+  },
+  {
+    "name": "foundi.web.captcha.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.web.captcha.expiration'"
+  },
+  {
+    "name": "foundi.token.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.token.secret'"
+  },
+  {
+    "name": "foundi.token.tokenExpiration",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.token.tokenExpiration'"
+  },
+  {
+    "name": "foundi.token.tokenRefreshPeriod",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.token.tokenRefreshPeriod'"
+  },
+  {
+    "name": "foundi.token.validCodeExpiration",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.token.validCodeExpiration'"
+  },
+  {
+    "name": "foundi.oauth.weixin.app-id",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.weixin.app-id'"
+  },
+  {
+    "name": "foundi.oauth.weixin.appSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.weixin.appSecret'"
+  },
+  {
+    "name": "foundi.oauth.weixin.callbackUrl",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.weixin.callbackUrl'"
+  },
+  {
+    "name": "foundi.oauth.qq.app-id",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.qq.app-id'"
+  },
+  {
+    "name": "foundi.oauth.qq.appKey",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.qq.appKey'"
+  },
+  {
+    "name": "foundi.oauth.qq.callbackUrl",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.qq.callbackUrl'"
+  },
+  {
+    "name": "foundi.oauth.weibo.app-key",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.weibo.app-key'"
+  },
+  {
+    "name": "foundi.oauth.weibo.appSecret",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.weibo.appSecret'"
+  },
+  {
+    "name": "foundi.oauth.weibo.callbackUrl",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.oauth.weibo.callbackUrl'"
+  },
+  {
+    "name": "foundi.swagger.enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.swagger.enabled'"
+  },
+  {
+    "name": "foundi.swagger.pathMapping",
+    "type": "java.lang.String",
+    "description": "A description for 'foundi.swagger.pathMapping'"
+  }
+]}

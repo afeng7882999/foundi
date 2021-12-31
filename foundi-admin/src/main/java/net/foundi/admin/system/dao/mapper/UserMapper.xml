@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.UserDo">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="mobile" property="mobile"/>
+        <result column="group_id" property="groupId"/>
+        <result column="name" property="name"/>
+        <result column="avatar" property="avatar"/>
+        <result column="status_dict" property="statusDict"/>
+        <result column="email" property="email"/>
+        <result column="gender_dict" property="genderDict"/>
+        <result column="birthday" property="birthday"/>
+        <result column="address" property="address"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="district" property="district"/>
+        <result column="create_at" property="createAt"/>
+        <result column="create_by" property="createBy"/>
+        <result column="update_by" property="updateBy"/>
+        <result column="update_at" property="updateAt"/>
+        <!-- join -->
+        <collection property="roleList" javaType="java.util.List" resultMap="RoleResultMap"/>
+    </resultMap>
+
+    <resultMap id="RoleResultMap" type="net.foundi.admin.system.entity.domain.RoleDo">
+        <id column="role_id" property="id"/>
+        <result column="role_name" property="name"/>
+        <result column="data_scope_dict" property="dataScopeDict"/>
+    </resultMap>
+
+    <select id="selectPageOfUserDo" resultMap="BaseResultMap">
+        SELECT * FROM (
+            SELECT u.*, r.id AS role_id, r.name AS role_name, r.data_scope_dict
+            FROM sys_user u
+                LEFT JOIN sys_user_role ur ON u.id = ur.user_id
+                LEFT JOIN sys_role r ON r.id = ur.role_id
+            WHERE r.del_flag != 1
+        ) us
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+    <select id="selectOneOfUserDo" resultMap="BaseResultMap">
+        SELECT u.*, r.id AS role_id, r.name AS role_name, r.data_scope_dict
+        FROM (SELECT * FROM sys_user u <where>${ew.sqlSegment}</where> LIMIT 1) u
+            LEFT JOIN sys_user_role ur ON u.id = ur.user_id
+            LEFT JOIN sys_role r ON r.id = ur.role_id
+        WHERE r.del_flag != 1
+    </select>
+
+    <select id="getRoleIdsById" resultType="Long" parameterType="Long">
+        SELECT role_id
+        FROM sys_user_role
+        WHERE user_id = #{id}
+    </select>
+
+</mapper>

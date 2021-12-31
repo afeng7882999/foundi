@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.DictItemDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.DictItemDo">
+        <id column="id" property="id" />
+        <result column="sort" property="sort" />
+        <result column="item_key" property="itemKey" />
+        <result column="item_value" property="itemValue" />
+        <result column="dict_id" property="dictId" />
+        <result column="remarks" property="remarks" />
+        <result column="create_by" property="createBy" />
+        <result column="create_at" property="createAt" />
+        <result column="update_by" property="updateBy" />
+        <result column="update_at" property="updateAt" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <select id="selectByDictName" resultMap="BaseResultMap">
+        SELECT di.*
+        FROM sys_dict_item di
+            LEFT JOIN sys_dict sd ON di.dict_id = sd.id
+        WHERE sd.name = #{dictName} AND di.del_flag != 1
+    </select>
+
+</mapper>

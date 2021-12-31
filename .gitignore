@@ -1,0 +1,19 @@
+# Idea project files
+.idea
+*.iml
+out
+gen
+
+# Vscode project files
+/.vscode/
+.settings/
+.history/
+.project
+.classpath
+.factorypath
+
+# Compiled class file
+target/
+
+# Log files
+/logs/

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.UserRoleDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.UserRoleDo">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="role_id" property="roleId" />
+    </resultMap>
+
+    <select id="selectAllMatch" parameterType="java.util.List" resultType="java.util.HashMap">
+        SELECT COUNT(role_id) AS size, user_id FROM
+        (SELECT DISTINCT user_id, role_id FROM sys_user_role WHERE user_id IS NOT NULL AND role_id IN
+        <foreach collection="roleIds" item="roleId" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>) ur GROUP BY user_id HAVING size=${list.size()};
+    </select>
+
+    <insert id="batchInsert">
+        INSERT INTO sys_user_role(id, user_id, role_id) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.userId},#{item.roleId})
+        </foreach>
+    </insert>
+
+</mapper>

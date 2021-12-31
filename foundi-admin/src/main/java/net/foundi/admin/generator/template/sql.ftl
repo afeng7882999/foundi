@@ -1,0 +1,10 @@
+INSERT INTO `sys_menu` VALUES ('${ids[0]}', '${menuParentId}', '${menuTitle}管理', '/${moduleNameSlash}/${lowerClassName}', null, '${moduleNameCamel}:${lowerClassName}:list', '1', null, 'list', null, '0', null, b'1', '${version}', null);
+INSERT INTO `sys_menu` VALUES ('${ids[1]}', '${ids[0]}', '查看', '', null, '${moduleNameCamel}:${lowerClassName}:list,${moduleNameCamel}:${lowerClassName}:get,${moduleNameCamel}:${lowerClassName}:export', '2', null, '', null, '0', null, b'1', '${version}', null);
+INSERT INTO `sys_menu` VALUES ('${ids[2]}', '${ids[0]}', '添加', '', null, '${moduleNameCamel}:${lowerClassName}:add', '2', null, '', null, '0', null, b'1', '${version}', null);
+INSERT INTO `sys_menu` VALUES ('${ids[3]}', '${ids[0]}', '修改', '', null, '${moduleNameCamel}:${lowerClassName}:edit', '2', null, '', null, '0', null, b'1', '${version}', null);
+INSERT INTO `sys_menu` VALUES ('${ids[4]}', '${ids[0]}', '删除', '', null, '${moduleNameCamel}:${lowerClassName}:delete', '2', null, '', null, '0', null, b'1', '${version}', null);
+INSERT INTO `sys_role_menu` VALUES ('${ids[5]}', '1', '${ids[0]}');
+INSERT INTO `sys_role_menu` VALUES ('${ids[6]}', '1', '${ids[1]}');
+INSERT INTO `sys_role_menu` VALUES ('${ids[7]}', '1', '${ids[2]}');
+INSERT INTO `sys_role_menu` VALUES ('${ids[8]}', '1', '${ids[3]}');
+INSERT INTO `sys_role_menu` VALUES ('${ids[9]}', '1', '${ids[4]}');

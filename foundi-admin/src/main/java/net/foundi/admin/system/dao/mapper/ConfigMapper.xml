@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.ConfigDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.ConfigDo">
+        <id column="id" property="id" />
+        <result column="config_type_dict" property="configTypeDict" />
+        <result column="config_key" property="configKey" />
+        <result column="config_value" property="configValue" />
+        <result column="enabled" property="enabled" />
+        <result column="remark" property="remark" />
+        <result column="create_at" property="createAt" />
+    </resultMap>
+
+</mapper>

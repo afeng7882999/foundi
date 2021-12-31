@@ -1,0 +1,129 @@
+# foundi
+
+foundi:
+  app:
+    name: Foundi
+    version: 3.0.0
+    copyrightYear: 2020
+    author: Afeng
+    email: afeng7882999@163.com
+  web:
+    # 下载临时路径
+    downloadTmpDir: D:/downloadTmp/
+    # 是否获取用户地址
+    addressEnabled: true
+    encrypt:
+      enabled: true
+      urls: /login:post,/login/register,/login/reset-password
+    xss:
+      enabled: true
+      # 需要XSS过滤的地址
+      urlPatterns: /*
+    captcha:
+      # 登录验证码类型
+      type: math
+      expiration: 3600
+  security:
+    # 令牌签名密钥
+    tokenSecret: F2iu42FF9fXM70TsCjuQIDAQABAkB6Yv8OqcvJKnXEK0AytYgRyHLNgCQ0NwzoD8
+    # 令牌过期时间，小时
+    tokenExpiration: 2
+    # 令牌刷新窗口，小时
+    tokenRefreshPeriod: 1
+    # 登录验证码过期时间，秒
+    captchaExpiration: 120
+    # 加密密钥，RSA私钥、公钥
+    rsaPrivateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIP4zHuLbCJ6_KMYqI7BHWCtYUKkqhvOArrYxoXMLPGgdMhfPZFd45XUfGL8F1AhW99kuXFhXSsbwNHtDWL_trp9CEJfOVp1NWvpy5qLEstejZdsUKwdoLzTT0PTXYVdQjbAm95lya2NjPHbPh4tMgZtYdfqPgbJ_i60j3gAR4qHAgMBAAECgYBtXTLnduTHti_CYN7eXj6gLU4aUib-H7y3Zoktu8PLAPOGURbOboX5Vjs2ND6Fkv91oxziTpNM9BTYYp_jWJHtxEJl5Lhjz61AUXwEZqOKHRF137MQo9GemCDdEjg_mIncI9vPxsYeWf6OcIxhrRzbisnqicot6uhT2QF8N0zOkQJBAOhQaB91PvIdT9ODb4lYnLXqkcAMtPHNtSdG5RS5n5Hw7UiE5R8GbhVM_k1MMjYDn2-C2HhT4XEUUOsDcqp-uOMCQQCRbWArPciu13AjTxaVgF7BF-hWw6q9SYx-yxiUxsoG5D82pS2CuwpzIGCJ-00INF3i8vfZEMCXjDrxM5rz-u0NAkEAvLz2mvgqV5Gw1OqnpzIyvyj_mMO6DelOD8btPlVAatUOMiil7PrQXMXcpPgOowt2cKYhMEEVm0UiKIz4j8O8eQJAXuwufmsIh58VkeZ4jkLJFm5dd-ylkIHmU4iLVejfS1pGLIvqRc-CRZ0Xhljicf2EXrNKtYNqwkCE5JVTifb6LQJAaiSC9HmI8YUvMemDRHKTT4hVulCwB9LpUsOc9cUOyb-mlilOnnwpFzA3flpnt4bp56enPMncn4YcC-4r1ZxA6g==
+    rsaPublicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCD+Mx7i2wievyjGKiOwR1grWFCpKobzgK62MaFzCzxoHTIXz2RXeOV1Hxi/BdQIVvfZLlxYV0rG8DR7Q1i/7a6fQhCXzladTVr6cuaixLLXo2XbFCsHaC8009D012FXUI2wJveZcmtjYzx2z4eLTIGbWHX6j4Gyf4utI94AEeKhwIDAQAB
+  # OAuth配置
+  oauth:
+    weixin:
+      appId: wxcf241xxxxxxx
+      appSecret: 17901c501f564xxxxxxxxxx
+      callbackUrl: http://foundi.natapp1.cc/foundi-admin/login/weixin-callback
+    qq:
+      appId: xxxxxxxx
+      appKey: d110ff03200eba3c2ffxxxxxxxx
+      callbackUrl: http://foundi.natapp1.cc/foundi-admin/login/qq-callback
+    weibo:
+      appKey: xxxxxxxx
+      appSecret: 4d0fb14898cb1xxxxxxxxxx
+      callbackUrl: http://foundi.natapp1.cc/foundi-admin/login/weibo-callback
+
+# jetty
+
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  jetty:
+    acceptors: 2
+    selectors: 4
+    connection-idle-timeout: 20000
+
+# spring
+
+spring:
+  profiles:
+    active: "@spring.active@"
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+      enabled: true
+  #redis
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 6000ms
+    database: 0
+    lettuce:
+      pool:
+        max-active: 10
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+  #cache
+  cache:
+    type: redis
+  #mail
+  mail:
+    host: smtp.163.com
+    username: afeng7882999999@163.com
+    password: QYAVULEHKWHLJYAJ
+    protocol: smtp
+    port: 25
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 25000
+          starttls:
+            enable: true
+            required: true
+  #freemarker
+  freemarker:
+    checkTemplateLocation: false
+
+#mybatis-plus
+
+mybatis-plus:
+  # mapper路径
+  mapper-locations: classpath*:net/foundi/**/dao/mapper/*.xml
+  # 实体路径
+  typeAliasesPackage: net.foundi.admin.generator.entity.domain.*
+  global-config:
+    banner: false
+    db-config:
+      field-strategy: not_null
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+

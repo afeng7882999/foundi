@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.MenuDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.MenuDo">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="redirect" property="redirect" />
+        <result column="perms" property="perms" />
+        <result column="type_dict" property="typeDict" />
+        <result column="page_path" property="pagePath" />
+        <result column="icon" property="icon" />
+        <result column="abbr" property="abbr" />
+        <result column="sort" property="sort" />
+        <result column="remark" property="remark" />
+        <result column="visible" property="visible" />
+        <result column="create_at" property="createAt" />
+        <result column="update_at" property="updateAt" />
+    </resultMap>
+
+    <select id="getMenusByRoleIds" resultMap="BaseResultMap" parameterType="java.util.List">
+        SELECT DISTINCT m.* FROM sys_menu m LEFT JOIN sys_role_menu rm ON rm.menu_id = m.id WHERE rm.role_id IN
+        <foreach collection="roleIds" item="roleId" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+
+    <select id="getPermsByRoleIds" parameterType="java.util.List" resultType="String">
+        SELECT DISTINCT m.perms FROM sys_role_menu r LEFT JOIN sys_menu m ON r.menu_id = m.id
+        WHERE m.perms IS NOT NULL and m.perms &lt;&gt; '' AND r.role_id IN
+        <foreach item="roleId" collection="roleIds" open="(" separator="," close=")">
+            #{roleId}
+        </foreach>
+    </select>
+
+</mapper>

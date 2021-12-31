@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.RoleMenuDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.RoleMenuDo">
+        <id column="id" property="id" />
+        <result column="role_id" property="roleId" />
+        <result column="menu_id" property="menuId" />
+    </resultMap>
+
+    <insert id="batchInsert">
+        INSERT INTO sys_role_menu(id, role_id, menu_id) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id},#{item.roleId},#{item.menuId})
+        </foreach>
+    </insert>
+
+</mapper>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include optinal="true" resource="net/foundi/framework/log/config/logback-default.xml" />
+</configuration>

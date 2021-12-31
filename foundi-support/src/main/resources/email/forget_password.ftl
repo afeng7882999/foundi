@@ -1,0 +1,1 @@
+FOUNDi验证码，请输入<font color="red">${code}</font>。

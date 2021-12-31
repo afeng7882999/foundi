@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.FileDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.FileDo">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="oss" property="oss" />
+        <result column="type_dict" property="typeDict" />
+        <result column="url" property="url" />
+        <result column="create_by" property="createBy" />
+        <result column="create_at" property="createAt" />
+    </resultMap>
+
+</mapper>

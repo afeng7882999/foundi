@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.OAuthUserDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.OAuthUserDo">
+        <id column="id" property="id" />
+        <result column="account" property="account" />
+        <result column="nick_name" property="nickName" />
+        <result column="avatar" property="avatar" />
+        <result column="gender_dict" property="genderDict" />
+        <result column="open_id" property="openId" />
+        <result column="oauth_type_dict" property="oAuthTypeDict" />
+        <result column="user_id" property="userId" />
+        <result column="create_at" property="createAt" />
+        <result column="update_at" property="updateAt" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,91 @@
+# 代码生成器配置
+enabled: false #命令行代码生成开关
+targetDir: D:/java
+pack: net.foundi.admin
+author: Afeng
+fontPath: web
+tables:
+  - tableName: gen_table
+    module: tools.generator
+    queryCols:
+      - name: table_name
+        type: INNER_LIKE
+    entityName: GenTable
+  - tableName: gen_table_column
+    module: tools.generator
+    queryCols:
+      - name: column_name
+        type: INNER_LIKE
+    entityName: GenTableColumn
+  - tableName: sys_role
+    module: system
+    entityName: Role
+  - tableName: sys_oper_log
+    module: system
+    entityName: OperLog
+    queryCols:
+      - name: oper_user_name
+        type: INNER_LIKE
+  - tableName: sys_message_history
+    isSub: true
+    module: system
+    entityName: MessageHistroy
+  - tableName: sys_message
+    module: system
+    entityName: Message
+    queryCols:
+      - name: type_dict
+        type: EQUAL
+  - tableName: sys_user_role
+    isSub: true
+    module: system
+    entityName: UserRole
+  - tableName: sys_user
+    module: system
+    entityName: User
+    queryCols:
+      - name: username
+        type: INNER_LIKE
+  - tableName: sys_task
+    module: system
+    entityName: Task
+  - tableName: sys_role_menu
+    isSub: true
+    module: system
+    entityName: RoleMenu
+  - tableName: sys_role_group
+    isSub: true
+    module: system
+    entityName: RoleGroup
+  - tableName: sys_menu
+    module: system
+    entityName: Menu
+  - tableName: sys_login_log
+    module: system
+    entityName: LoginLog
+    queryCols:
+      - name: username
+        type: INNER_LIKE
+  - tableName: sys_group
+    module: system
+    entityName: Group
+  - tableName: sys_config
+    module: system
+    entityName: Config
+  - tableName: sys_file
+    module: system
+    entityName: File
+    queryCols:
+      - name: name
+        type: INNER_LIKE
+      - name: type
+        type: EQUAL
+  - tableName: sys_dict
+    module: system
+    entityName: Dict
+  - tableName: sys_dict_item
+    module: system
+    entityName: DictItem
+  - tableName: sys_oauth_user
+    module: system
+    entityName: OauthUser

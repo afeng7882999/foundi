@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.LoginLogDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.LoginLogDo">
+        <id column="id" property="id" />
+        <result column="type_dict" property="typeDict" />
+        <result column="user_name" property="userName" />
+        <result column="ip" property="ip" />
+        <result column="location" property="location" />
+        <result column="browser" property="browser" />
+        <result column="os" property="os" />
+        <result column="authc_type_dict" property="authcTypeDict" />
+        <result column="status_dict" property="statusDict" />
+        <result column="message" property="message" />
+        <result column="oper_time" property="operTime" />
+    </resultMap>
+
+</mapper>

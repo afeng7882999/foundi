@@ -1,0 +1,7 @@
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+net.foundi.support.sms.config.SmsConfig,\
+net.foundi.support.task.config.TaskConfig,\
+net.foundi.support.email.config.EMailConfig,\
+net.foundi.support.upload.config.UploadConfig,\
+net.foundi.support.oauth.config.OAuthConfig

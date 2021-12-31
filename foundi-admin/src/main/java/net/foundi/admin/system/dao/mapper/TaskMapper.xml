@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2019-2021 Afeng & tianfeng All Rights Reserved
+  ~ (email:afeng7882999@163.com, qq:7882999).
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.foundi.admin.system.dao.TaskDao">
+
+    <resultMap id="BaseResultMap" type="net.foundi.admin.system.entity.domain.TaskDo">
+        <id column="id" property="id" />
+        <result column="job_name" property="jobName" />
+        <result column="job_group" property="jobGroup" />
+        <result column="job_status" property="jobStatus" />
+        <result column="is_concurrent" property="isConcurrent" />
+        <result column="cron_expression" property="cronExpression" />
+        <result column="description" property="description" />
+        <result column="bean_class" property="beanClass" />
+        <result column="spring_bean" property="springBean" />
+        <result column="method_name" property="methodName" />
+        <result column="create_at" property="createAt" />
+        <result column="create_by" property="createBy" />
+        <result column="update_at" property="updateAt" />
+        <result column="update_by" property="updateBy" />
+    </resultMap>
+
+</mapper>
