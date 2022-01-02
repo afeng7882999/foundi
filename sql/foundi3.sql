@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50727
 File Encoding         : 65001
 
-Date: 2021-12-31 21:18:51
+Date: 2022-01-03 00:11:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -461,6 +461,33 @@ INSERT INTO `sys_file` VALUES ('1468620785349419009', 'sean-kong-1dJmkdVuelg-uns
 INSERT INTO `sys_file` VALUES ('1471885112550371329', 'marco-xu-UlCLN7s-nkY-unsplash_fd182012.png', 'local_oss_default', '1', '/upload/20211218/marco-xu-UlCLN7s-nkY-unsplash_fd182012.png', '1', '2021-12-18 00:48:52');
 INSERT INTO `sys_file` VALUES ('1473683369689731073', 'religion-3452582_fd355233.png', 'local_oss_default', '1', '/upload/20211222/religion-3452582_fd355233.png', '1', '2021-12-22 23:54:30');
 INSERT INTO `sys_file` VALUES ('1474156602436210689', '5c690f6egy1fywzgd1y8zj20j60j60u2_fd989195.png', 'local_oss_default', '1', '/upload/20211224/5c690f6egy1fywzgd1y8zj20j60j60u2_fd989195.png', '1', '2021-12-24 07:14:57');
+INSERT INTO `sys_file` VALUES ('1477295471058804737', '001_fd778536.jpg', 'local_oss_default', '1', '/upload/20220101/001_fd778536.jpg', '1', '2022-01-01 23:07:42');
+INSERT INTO `sys_file` VALUES ('1477295471058804738', '001 (2)_fd982315.jpg', 'local_oss_default', '1', '/upload/20220101/001 (2)_fd982315.jpg', '1', '2022-01-01 23:07:42');
+INSERT INTO `sys_file` VALUES ('1477540175658614786', '预览图 (7)_fd450895.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd450895.jpg', '1', '2022-01-02 15:20:04');
+INSERT INTO `sys_file` VALUES ('1477540440386306050', '预览图 (7)_fd919628.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd919628.jpg', '1', '2022-01-02 15:21:07');
+INSERT INTO `sys_file` VALUES ('1477542254036910081', '预览图 (7)_fd871157.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd871157.jpg', '1', '2022-01-02 15:28:19');
+INSERT INTO `sys_file` VALUES ('1477542290867093505', '预览图 (7)_fd024743.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd024743.jpg', '1', '2022-01-02 15:28:28');
+INSERT INTO `sys_file` VALUES ('1477655225228591106', '预览图 (8)_fd806518.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (8)_fd806518.jpg', '1', '2022-01-02 22:57:14');
+INSERT INTO `sys_file` VALUES ('1477655699767951361', '预览图 (7)_fd570380.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd570380.jpg', '1', '2022-01-02 22:59:07');
+INSERT INTO `sys_file` VALUES ('1477660415663013889', '预览图 (6)_fd606776.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (6)_fd606776.jpg', '1', '2022-01-02 23:17:51');
+INSERT INTO `sys_file` VALUES ('1477660808392474626', '预览图 (2)_fd791991.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (2)_fd791991.jpg', '1', '2022-01-02 23:19:25');
+INSERT INTO `sys_file` VALUES ('1477660849144332289', '预览图 (6)_fd923257.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (6)_fd923257.jpg', '1', '2022-01-02 23:19:35');
+INSERT INTO `sys_file` VALUES ('1477662383508815874', '预览图 (1)_fd753425.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (1)_fd753425.jpg', '1', '2022-01-02 23:25:41');
+INSERT INTO `sys_file` VALUES ('1477662479600320514', '预览图 (2)_fd479659.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (2)_fd479659.jpg', '1', '2022-01-02 23:26:03');
+INSERT INTO `sys_file` VALUES ('1477662493626073090', '预览图 (8)_fd402499.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (8)_fd402499.jpg', '1', '2022-01-02 23:26:07');
+INSERT INTO `sys_file` VALUES ('1477663020460015617', '预览图 (2)_fd725831.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (2)_fd725831.jpg', '1', '2022-01-02 23:28:12');
+INSERT INTO `sys_file` VALUES ('1477663063204167682', '预览图 (1)_fd419787.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (1)_fd419787.jpg', '1', '2022-01-02 23:28:23');
+INSERT INTO `sys_file` VALUES ('1477663331832561665', '预览图 (8)_fd690708.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (8)_fd690708.jpg', '1', '2022-01-02 23:29:27');
+INSERT INTO `sys_file` VALUES ('1477663922726109185', '预览图 (7)_fd942598.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd942598.jpg', '1', '2022-01-02 23:31:48');
+INSERT INTO `sys_file` VALUES ('1477666109288087553', '预览图 (8)_fd869623.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (8)_fd869623.jpg', '1', '2022-01-02 23:40:29');
+INSERT INTO `sys_file` VALUES ('1477666308668522497', '预览图 (7)_fd367282.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd367282.jpg', '1', '2022-01-02 23:41:16');
+INSERT INTO `sys_file` VALUES ('1477666409998712834', '预览图 (4)_fd465558.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (4)_fd465558.jpg', '1', '2022-01-02 23:41:41');
+INSERT INTO `sys_file` VALUES ('1477666778908721153', '预览图 (6)_fd455388.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (6)_fd455388.jpg', '1', '2022-01-02 23:43:08');
+INSERT INTO `sys_file` VALUES ('1477667499133632513', '预览图 (4)_fd253777.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (4)_fd253777.jpg', '1', '2022-01-02 23:46:00');
+INSERT INTO `sys_file` VALUES ('1477667718697058305', '预览图 (4)_fd189574.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (4)_fd189574.jpg', '1', '2022-01-02 23:46:53');
+INSERT INTO `sys_file` VALUES ('1477667745062453250', '预览图 (2)_fd544964.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (2)_fd544964.jpg', '1', '2022-01-02 23:46:59');
+INSERT INTO `sys_file` VALUES ('1477667965250830337', '预览图 (7)_fd554809.jpg', 'local_oss_default', '1', '/upload/20220102/预览图 (7)_fd554809.jpg', '1', '2022-01-02 23:47:51');
+INSERT INTO `sys_file` VALUES ('1477668084599750657', 'marco-xu-UlCLN7s-nkY-unsplash_fd192550.jpg', 'local_oss_default', '1', '/upload/20220102/marco-xu-UlCLN7s-nkY-unsplash_fd192550.jpg', '1', '2022-01-02 23:48:20');
 
 -- ----------------------------
 -- Table structure for sys_group
@@ -1138,6 +1165,22 @@ INSERT INTO `sys_login_log` VALUES ('1476466005009092610', '0', 'admin', '192.16
 INSERT INTO `sys_login_log` VALUES ('1476483890238480386', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2021-12-30 17:22:46');
 INSERT INTO `sys_login_log` VALUES ('1476694248676974593', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2021-12-31 07:18:36');
 INSERT INTO `sys_login_log` VALUES ('1476810021676298242', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2021-12-31 14:58:39');
+INSERT INTO `sys_login_log` VALUES ('1476953071476015105', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-01 00:27:07');
+INSERT INTO `sys_login_log` VALUES ('1477295248966213634', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-01 23:06:49');
+INSERT INTO `sys_login_log` VALUES ('1477415025067950081', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 07:02:46');
+INSERT INTO `sys_login_log` VALUES ('1477482829137838082', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 11:32:11');
+INSERT INTO `sys_login_log` VALUES ('1477483551111774210', '1', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '退出成功', '2022-01-02 11:35:04');
+INSERT INTO `sys_login_log` VALUES ('1477483735635984386', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 11:35:48');
+INSERT INTO `sys_login_log` VALUES ('1477534809436717057', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 14:58:44');
+INSERT INTO `sys_login_log` VALUES ('1477535800051630082', '1', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '退出成功', '2022-01-02 15:02:41');
+INSERT INTO `sys_login_log` VALUES ('1477535822419853313', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 15:02:46');
+INSERT INTO `sys_login_log` VALUES ('1477536034949431298', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 15:03:37');
+INSERT INTO `sys_login_log` VALUES ('1477539220112277505', '1', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '退出成功', '2022-01-02 15:16:16');
+INSERT INTO `sys_login_log` VALUES ('1477539246729330689', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 15:16:22');
+INSERT INTO `sys_login_log` VALUES ('1477539431085768706', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 15:17:06');
+INSERT INTO `sys_login_log` VALUES ('1477540102476398594', '1', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '退出成功', '2022-01-02 15:19:46');
+INSERT INTO `sys_login_log` VALUES ('1477540122990739457', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 15:19:51');
+INSERT INTO `sys_login_log` VALUES ('1477655202390605826', '0', 'admin', '192.168.2.8', '内网IP', 'Chrome 9', 'Windows 10', '0', '0', '登录成功', '2022-01-02 22:57:08');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -1170,6 +1213,7 @@ INSERT INTO `sys_menu` VALUES ('11', '0', '用户信息', '/userProfile', '', ''
 INSERT INTO `sys_menu` VALUES ('20', '0', '系统管理', '/system', '/system/user', '', '0', null, 'system', 'SY', '20', null, '', '2020-12-21 15:04:26', '2021-12-24 17:20:56');
 INSERT INTO `sys_menu` VALUES ('30', '0', '系统工具', '/tools', '/tools/generator', '', '0', null, 'terminal', 'ST', '30', null, '', '2021-02-25 15:16:26', '2021-12-24 17:21:19');
 INSERT INTO `sys_menu` VALUES ('40', '0', '系统监控', '/monitor', '/monitor/db', '', '0', null, 'electrocardiogram', 'JK', '40', null, '', '2021-12-10 14:56:36', '2021-12-10 14:58:56');
+INSERT INTO `sys_menu` VALUES ('100', '0', '测试页面', '/test', '/test/uploadForm', '', '0', null, 'experiment-one', 'CS', '100', null, '', '2022-01-02 07:02:13', '2022-01-02 07:10:34');
 INSERT INTO `sys_menu` VALUES ('1330895557467602946', '20', '系统配置管理', '/system/config', null, 'system:config:list', '1', null, 'setting-config', 'CO', '1', null, '', '2020-11-23 23:26:42', '2021-05-21 15:34:50');
 INSERT INTO `sys_menu` VALUES ('1330895557467602947', '1330895557467602946', '查看', '', null, 'system:config:list,system:config:get', '2', null, '', null, '0', null, '', '2020-11-23 23:26:42', null);
 INSERT INTO `sys_menu` VALUES ('1330895557467602948', '1330895557467602946', '添加', '', null, 'system:config:add', '2', null, '', null, '0', null, '', '2020-11-23 23:26:42', '2021-05-13 23:29:41');
@@ -1241,6 +1285,7 @@ INSERT INTO `sys_menu` VALUES ('1423791489158344708', '1423791489158344706', '�
 INSERT INTO `sys_menu` VALUES ('1423791489158344709', '1423791489158344706', '修改', '', null, 'system:oauthUser:edit', '2', null, '', null, '0', null, '', '2021-08-07 07:41:58', null);
 INSERT INTO `sys_menu` VALUES ('1423791489158344710', '1423791489158344706', '删除', '', null, 'system:oauthUser:delete', '2', null, '', null, '0', null, '', '2021-08-07 07:41:58', null);
 INSERT INTO `sys_menu` VALUES ('1469200281613914114', '40', '数据源监控', '/monitor/data-source', '', 'monitor:dataSource:list,monitor:dataSource:get,monitor:dataSource:edit', '1', null, 'database-time', 'SJ', '0', '', '', '2021-12-10 15:00:18', '2021-12-11 00:07:20');
+INSERT INTO `sys_menu` VALUES ('1477483348354924546', '100', '上传控件测试', '/test/uploadForm', '', 'test:uploadForm:list', '1', null, 'circle-small', 'SC', '0', '', '', '2022-01-02 11:34:15', '2022-01-02 15:19:08');
 
 -- ----------------------------
 -- Table structure for sys_message
@@ -2159,6 +2204,39 @@ INSERT INTO `sys_oper_log` VALUES ('1476438173805563906', '修改系统用户', 
 INSERT INTO `sys_oper_log` VALUES ('1476438222191054849', '修改系统用户', 'net.foundi.admin.system.controller.UserController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/user', '192.168.2.8', '内网IP', '{dto=UserDto(id=1453257357319544833, username=admin888, password=null, mobile=13933161895, groupId=1419183541404688386, name=null, avatar=/upload/20211130/5c690f6egy1fywzgcqwr8j20j60j6ab2_fd690080.png, statusDict=0, email=afeng78829959@163.com, genderDict=0, birthday=2021-12-14, address=null, province=河北省, city=唐山市, district=路北区, createAt=2021-10-27T15:08:49, createBy=null, updateBy=1, updateAt=2021-12-18T00:51:17, roleIdList=[100], hasPassword=true, oAuthUserList=null)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1453257357319544833\",\"username\":\"admin888\",\"password\":null,\"mobile\":\"13933161895\",\"groupId\":\"1419183541404688386\",\"name\":null,\"avatar\":\"/upload/20211130/5c690f6egy1fywzgcqwr8j20j60j6ab2_fd690080.png\",\"statusDict\":\"0\",\"email\":\"afeng78829959@163.com\",\"genderDict\":\"0\",\"birthday\":\"2021-12-14\",\"address\":null,\"province\":\"河北省\",\"city\":\"唐山市\",\"district\":\"路北区\",\"createAt\":\"1635318529000\",\"createBy\":null,\"updateBy\":\"1\",\"updateAt\":\"1640845278000\",\"roleIdList\":[\"100\"],\"hasPassword\":true,\"oAuthUserList\":null},\"bz_code\":1}', '0', '', '2021-12-30 14:21:18');
 INSERT INTO `sys_oper_log` VALUES ('1476438279569133570', '修改系统用户', 'net.foundi.admin.system.controller.UserController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/user', '192.168.2.8', '内网IP', '{dto=UserDto(id=1419178419610050561, username=test123456, password=null, mobile=, groupId=30, name=11111166, avatar=/upload/20211130/avatar-2191931_fd984934.png, statusDict=0, email=, genderDict=0, birthday=2021-07-17, address=, province=香港特别行政区, city=東區, district=, createAt=2021-07-25T14:11:17, createBy=1, updateBy=1, updateAt=2021-11-30T22:47:12, roleIdList=[1, 10, 100, 1422500776445493249], hasPassword=true, oAuthUserList=null)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1419178419610050561\",\"username\":\"test123456\",\"password\":null,\"mobile\":\"\",\"groupId\":\"30\",\"name\":\"11111166\",\"avatar\":\"/upload/20211130/avatar-2191931_fd984934.png\",\"statusDict\":\"0\",\"email\":\"\",\"genderDict\":\"0\",\"birthday\":\"2021-07-17\",\"address\":\"\",\"province\":\"香港特别行政区\",\"city\":\"東區\",\"district\":\"\",\"createAt\":\"1627193477000\",\"createBy\":\"1\",\"updateBy\":\"1\",\"updateAt\":\"1640845291000\",\"roleIdList\":[\"1\",\"10\",\"100\",\"1422500776445493249\"],\"hasPassword\":true,\"oAuthUserList\":null},\"bz_code\":1}', '0', '', '2021-12-30 14:21:31');
 INSERT INTO `sys_oper_log` VALUES ('1476438321239543810', '修改系统用户', 'net.foundi.admin.system.controller.UserController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/user', '192.168.2.8', '内网IP', '{dto=UserDto(id=1419178419610050561, username=test123456, password=null, mobile=, groupId=30, name=11111166, avatar=/upload/20211130/avatar-2191931_fd984934.png, statusDict=0, email=, genderDict=0, birthday=2021-07-17, address=, province=香港特别行政区, city=東區, district=, createAt=2021-07-25T14:11:17, createBy=1, updateBy=1, updateAt=2021-12-30T14:21:31, roleIdList=[1, 10, 100, 1422500776445493249], hasPassword=true, oAuthUserList=null)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1419178419610050561\",\"username\":\"test123456\",\"password\":null,\"mobile\":\"\",\"groupId\":\"30\",\"name\":\"11111166\",\"avatar\":\"/upload/20211130/avatar-2191931_fd984934.png\",\"statusDict\":\"0\",\"email\":\"\",\"genderDict\":\"0\",\"birthday\":\"2021-07-17\",\"address\":\"\",\"province\":\"香港特别行政区\",\"city\":\"東區\",\"district\":\"\",\"createAt\":\"1627193477000\",\"createBy\":\"1\",\"updateBy\":\"1\",\"updateAt\":\"1640845301000\",\"roleIdList\":[\"1\",\"10\",\"100\",\"1422500776445493249\"],\"hasPassword\":true,\"oAuthUserList\":null},\"bz_code\":1}', '0', '', '2021-12-30 14:21:41');
+INSERT INTO `sys_oper_log` VALUES ('1477295471260131329', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 001 (2).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220101/001 (2)_fd982315.jpg\"],\"bz_code\":1}', '0', '', '2022-01-01 23:07:42');
+INSERT INTO `sys_oper_log` VALUES ('1477295471260131330', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 001.jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220101/001_fd778536.jpg\"],\"bz_code\":1}', '0', '', '2022-01-01 23:07:42');
+INSERT INTO `sys_oper_log` VALUES ('1477416988811722754', '修改系统菜单', 'net.foundi.admin.system.controller.MenuController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/menu', '192.168.2.8', '内网IP', '{dto=MenuDto(id=100, parentId=0, name=测试页面, url=/test, redirect=/test/upload, perms=, typeDict=0, pagePath=null, icon=experiment-one, abbr=CS, sort=100, remark=null, visible=true, createAt=2022-01-02T07:02:13, updateAt=2022-01-02T07:02:14)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"100\",\"parentId\":\"0\",\"parentPath\":null,\"sort\":100,\"level\":null,\"children\":null,\"name\":\"测试页面\",\"url\":\"/test\",\"redirect\":\"/test/upload\",\"perms\":\"\",\"typeDict\":\"0\",\"pagePath\":null,\"icon\":\"experiment-one\",\"abbr\":\"CS\",\"remark\":null,\"visible\":true,\"createAt\":\"1641078133000\",\"updateAt\":\"1641078634000\"},\"bz_code\":1}', '0', '', '2022-01-02 07:10:34');
+INSERT INTO `sys_oper_log` VALUES ('1477483348552056834', '新增系统菜单', 'net.foundi.admin.system.controller.MenuController.add()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/menu', '192.168.2.8', '内网IP', '{dto=MenuDto(id=null, parentId=0, name=上传控件测试, url=/test/upload, redirect=, perms=, typeDict=1, pagePath=null, icon=circle-small, abbr=SC, sort=0, remark=, visible=true, createAt=null, updateAt=null)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1477483348354924546\",\"parentId\":\"0\",\"parentPath\":null,\"sort\":0,\"level\":null,\"children\":null,\"name\":\"上传控件测试\",\"url\":\"/test/upload\",\"redirect\":\"\",\"perms\":\"\",\"typeDict\":\"1\",\"pagePath\":null,\"icon\":\"circle-small\",\"abbr\":\"SC\",\"remark\":\"\",\"visible\":true,\"createAt\":\"1641094455000\",\"updateAt\":null},\"bz_code\":1}', '0', '', '2022-01-02 11:34:15');
+INSERT INTO `sys_oper_log` VALUES ('1477483429284020225', '修改系统菜单', 'net.foundi.admin.system.controller.MenuController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/menu', '192.168.2.8', '内网IP', '{dto=MenuDto(id=1477483348354924546, parentId=100, name=上传控件测试, url=/test/upload, redirect=, perms=, typeDict=1, pagePath=null, icon=circle-small, abbr=SC, sort=0, remark=, visible=true, createAt=2022-01-02T11:34:15, updateAt=null)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1477483348354924546\",\"parentId\":\"100\",\"parentPath\":null,\"sort\":0,\"level\":null,\"children\":null,\"name\":\"上传控件测试\",\"url\":\"/test/upload\",\"redirect\":\"\",\"perms\":\"\",\"typeDict\":\"1\",\"pagePath\":null,\"icon\":\"circle-small\",\"abbr\":\"SC\",\"remark\":\"\",\"visible\":true,\"createAt\":\"1641094455000\",\"updateAt\":\"1641094474000\"},\"bz_code\":1}', '0', '', '2022-01-02 11:34:34');
+INSERT INTO `sys_oper_log` VALUES ('1477483533969653761', '修改系统角色', 'net.foundi.admin.system.controller.RoleController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/role', '192.168.2.8', '内网IP', '{dto=RoleDto(id=1, name=超级管理员, label=super_admin, remark=超级管理员, dataScopeDict=0, createBy=1, createAt=2020-11-19T14:11:55, updateBy=1, updateAt=2021-12-10T15:00:45, delFlag=false, menuIdList=[10, 11, 20, 1330895557467602946, 1330895557467602947, 1330895557467602948, 1330895557467602949, 1330895557467602950, 1330898330087112706, 1330898330087112707, 1330898330087112708, 1330898330087112709, 1330898330087112710, 1330898330930167809, 1330898330930167810, 1330898330930167811, 1330898330930167812, 1330898330930167813, 1330898329399246850, 1330898329399246851, 1330898329399246852, 1330898329399246853, 1330898329399246854, 1423791489158344706, 1423791489158344707, 1423791489158344708, 1423791489158344709, 1423791489158344710, 1330898331173437442, 1330898331173437443, 1330898331173437444, 1330898331173437445, 1330898331173437446, 1330898329785122817, 1330898329785122818, 1330898329785122819, 1330898329785122820, 1330898329785122821, 1330898330233913345, 1330898330233913346, 1330898330233913348, 1330898330233913349, 1330898330233913347, 1390339339984146433, 1390339339984146434, 1390339339984146435, 1390339339984146436, 1390339339984146437, 1330898331462844418, 1330898331462844419, 1330898331462844420, 1330898331462844421, 1330898331462844422, 1330898330678509570, 1330898330678509571, 1330898330678509572, 1330898330678509573, 1330898330678509574, 1330898330795950081, 1330898330795950082, 1330898330795950083, 1330898330795950084, 1330898330795950085, 1388163373723598849, 1388163373723598850, 1388163373723598851, 1388163373723598852, 1388163373723598853, 30, 1364834446406103042, 1364834446406103043, 1364834446406103044, 1364834446406103045, 1364834446406103046, 40, 1469200281613914114, 100, 1477483348354924546], groupIdList=[10, 20, 30, 1419183541404688386])}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1\",\"name\":\"超级管理员\",\"label\":\"super_admin\",\"remark\":\"超级管理员\",\"dataScopeDict\":\"0\",\"createBy\":\"1\",\"createAt\":\"1605766315000\",\"updateBy\":\"1\",\"updateAt\":\"1641094499000\",\"delFlag\":false,\"menuIdList\":[\"10\",\"11\",\"20\",\"1330895557467602946\",\"1330895557467602947\",\"1330895557467602948\",\"1330895557467602949\",\"1330895557467602950\",\"1330898330087112706\",\"1330898330087112707\",\"1330898330087112708\",\"1330898330087112709\",\"1330898330087112710\",\"1330898330930167809\",\"1330898330930167810\",\"1330898330930167811\",\"1330898330930167812\",\"1330898330930167813\",\"1330898329399246850\",\"1330898329399246851\",\"1330898329399246852\",\"1330898329399246853\",\"1330898329399246854\",\"1423791489158344706\",\"1423791489158344707\",\"1423791489158344708\",\"1423791489158344709\",\"1423791489158344710\",\"1330898331173437442\",\"1330898331173437443\",\"1330898331173437444\",\"1330898331173437445\",\"1330898331173437446\",\"1330898329785122817\",\"1330898329785122818\",\"1330898329785122819\",\"1330898329785122820\",\"1330898329785122821\",\"1330898330233913345\",\"1330898330233913346\",\"1330898330233913348\",\"1330898330233913349\",\"1330898330233913347\",\"1390339339984146433\",\"1390339339984146434\",\"1390339339984146435\",\"1390339339984146436\",\"1390339339984146437\",\"1330898331462844418\",\"1330898331462844419\",\"1330898331462844420\",\"1330898331462844421\",\"1330898331462844422\",\"1330898330678509570\",\"1330898330678509571\",\"1330898330678509572\",\"1330898330678509573\",\"1330898330678509574\",\"1330898330795950081\",\"1330898330795950082\",\"1330898330795950083\",\"1330898330795950084\",\"1330898330795950085\",\"1388163373723598849\",\"1388163373723598850\",\"1388163373723598851\",\"1388163373723598852\",\"1388163373723598853\",\"30\",\"1364834446406103042\",\"1364834446406103043\",\"1364834446406103044\",\"1364834446406103045\",\"1364834446406103046\",\"40\",\"1469200281613914114\"],\"groupIdList\":[\"10\",\"20\",\"30\",\"1419183541404688386\"]},\"bz_code\":1}', '0', '', '2022-01-02 11:34:59');
+INSERT INTO `sys_oper_log` VALUES ('1477538260040286210', '修改系统菜单', 'net.foundi.admin.system.controller.MenuController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/menu', '192.168.2.8', '内网IP', '{dto=MenuDto(id=1477483348354924546, parentId=100, name=上传控件测试, url=/test/uploadForm, redirect=, perms=, typeDict=1, pagePath=null, icon=circle-small, abbr=SC, sort=0, remark=, visible=true, createAt=2022-01-02T11:34:15, updateAt=2022-01-02T11:34:34)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1477483348354924546\",\"parentId\":\"100\",\"parentPath\":null,\"sort\":0,\"level\":null,\"children\":null,\"name\":\"上传控件测试\",\"url\":\"/test/uploadForm\",\"redirect\":\"\",\"perms\":\"\",\"typeDict\":\"1\",\"pagePath\":null,\"icon\":\"circle-small\",\"abbr\":\"SC\",\"remark\":\"\",\"visible\":true,\"createAt\":\"1641094455000\",\"updateAt\":\"1641107547000\"},\"bz_code\":1}', '0', '', '2022-01-02 15:12:27');
+INSERT INTO `sys_oper_log` VALUES ('1477539939611574274', '修改系统菜单', 'net.foundi.admin.system.controller.MenuController.edit()', 'PUT', '1', 'admin', '超级管理员,系统管理员', '', '/system/menu', '192.168.2.8', '内网IP', '{dto=MenuDto(id=1477483348354924546, parentId=100, name=上传控件测试, url=/test/uploadForm, redirect=, perms=test:uploadForm:list, typeDict=1, pagePath=null, icon=circle-small, abbr=SC, sort=0, remark=, visible=true, createAt=2022-01-02T11:34:15, updateAt=2022-01-02T15:12:27)}', '{\"msg\":[\"成功\"],\"content\":{\"id\":\"1477483348354924546\",\"parentId\":\"100\",\"parentPath\":null,\"sort\":0,\"level\":null,\"children\":null,\"name\":\"上传控件测试\",\"url\":\"/test/uploadForm\",\"redirect\":\"\",\"perms\":\"test:uploadForm:list\",\"typeDict\":\"1\",\"pagePath\":null,\"icon\":\"circle-small\",\"abbr\":\"SC\",\"remark\":\"\",\"visible\":true,\"createAt\":\"1641094455000\",\"updateAt\":\"1641107948000\"},\"bz_code\":1}', '0', '', '2022-01-02 15:19:08');
+INSERT INTO `sys_oper_log` VALUES ('1477540175725723650', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd450895.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 15:20:04');
+INSERT INTO `sys_oper_log` VALUES ('1477540440512135170', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd919628.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 15:21:07');
+INSERT INTO `sys_oper_log` VALUES ('1477542254171127810', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd871157.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 15:28:19');
+INSERT INTO `sys_oper_log` VALUES ('1477542290997116930', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd024743.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 15:28:28');
+INSERT INTO `sys_oper_log` VALUES ('1477655225358614530', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (8).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (8)_fd806518.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 22:57:14');
+INSERT INTO `sys_oper_log` VALUES ('1477655699897974785', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd570380.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 22:59:07');
+INSERT INTO `sys_oper_log` VALUES ('1477660415725928449', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (6).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (6)_fd606776.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:17:51');
+INSERT INTO `sys_oper_log` VALUES ('1477660808526692354', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (2).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (2)_fd791991.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:19:25');
+INSERT INTO `sys_oper_log` VALUES ('1477660849274355713', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (6).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (6)_fd923257.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:19:35');
+INSERT INTO `sys_oper_log` VALUES ('1477662383575924737', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (1).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (1)_fd753425.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:25:41');
+INSERT INTO `sys_oper_log` VALUES ('1477662479600320515', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (2).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (2)_fd479659.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:26:03');
+INSERT INTO `sys_oper_log` VALUES ('1477662493760290817', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (8).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (8)_fd402499.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:26:07');
+INSERT INTO `sys_oper_log` VALUES ('1477663020460015618', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (2).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (2)_fd725831.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:28:12');
+INSERT INTO `sys_oper_log` VALUES ('1477663063204167683', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (1).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (1)_fd419787.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:28:23');
+INSERT INTO `sys_oper_log` VALUES ('1477663331962585090', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (8).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (8)_fd690708.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:29:27');
+INSERT INTO `sys_oper_log` VALUES ('1477663922847744001', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd942598.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:31:48');
+INSERT INTO `sys_oper_log` VALUES ('1477666109413916673', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (8).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (8)_fd869623.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:40:29');
+INSERT INTO `sys_oper_log` VALUES ('1477666308735631362', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd367282.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:41:16');
+INSERT INTO `sys_oper_log` VALUES ('1477666410128736257', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (4).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (4)_fd465558.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:41:41');
+INSERT INTO `sys_oper_log` VALUES ('1477666778971635713', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (6).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (6)_fd455388.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:43:08');
+INSERT INTO `sys_oper_log` VALUES ('1477667499133632514', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (4).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (4)_fd253777.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:46:00');
+INSERT INTO `sys_oper_log` VALUES ('1477667718764167169', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (4).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (4)_fd189574.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:46:53');
+INSERT INTO `sys_oper_log` VALUES ('1477667745192476673', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (2).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (2)_fd544964.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:46:59');
+INSERT INTO `sys_oper_log` VALUES ('1477667965376659458', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: 预览图 (7).jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/预览图 (7)_fd554809.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:47:51');
+INSERT INTO `sys_oper_log` VALUES ('1477668084658470913', '文件操作', 'net.foundi.admin.system.controller.FileController.upload()', 'POST', '1', 'admin', '超级管理员,系统管理员', '', '/system/file/upload', '192.168.2.8', '内网IP', '上传文件: marco-xu-UlCLN7s-nkY-unsplash.jpg', '{\"msg\":[\"成功\"],\"content\":[\"/upload/20220102/marco-xu-UlCLN7s-nkY-unsplash_fd192550.jpg\"],\"bz_code\":1}', '0', '', '2022-01-02 23:48:20');
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -2182,7 +2260,7 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('1', '超级管理员', 'super_admin', '超级管理员', '0', '1', '2020-11-19 14:11:55', '1', '2021-12-10 15:00:45', '\0');
+INSERT INTO `sys_role` VALUES ('1', '超级管理员', 'super_admin', '超级管理员', '0', '1', '2020-11-19 14:11:55', '1', '2022-01-02 11:34:59', '\0');
 INSERT INTO `sys_role` VALUES ('10', '系统管理员', 'admin', '系统管理员', '3', '1', '2020-11-19 14:12:55', '1', '2021-08-03 07:47:50', '\0');
 INSERT INTO `sys_role` VALUES ('100', '用户', 'user', '用户', '4', '1', '2020-11-26 23:03:25', '1', '2021-08-04 07:54:51', '\0');
 INSERT INTO `sys_role` VALUES ('1422500776445493249', 'APP用户', 'app_user', 'App用户，没有后台权限', '4', '1', '2021-08-03 18:13:09', '1', '2021-08-03 18:13:18', '\0');
@@ -2207,10 +2285,10 @@ INSERT INTO `sys_role_group` VALUES ('1422707565766176770', '100', '10');
 INSERT INTO `sys_role_group` VALUES ('1422707565766176771', '100', '20');
 INSERT INTO `sys_role_group` VALUES ('1422707565766176772', '100', '30');
 INSERT INTO `sys_role_group` VALUES ('1422707565766176773', '100', '1419183541404688386');
-INSERT INTO `sys_role_group` VALUES ('1469200395015311362', '1', '10');
-INSERT INTO `sys_role_group` VALUES ('1469200395015311363', '1', '20');
-INSERT INTO `sys_role_group` VALUES ('1469200395015311364', '1', '30');
-INSERT INTO `sys_role_group` VALUES ('1469200395015311365', '1', '1419183541404688386');
+INSERT INTO `sys_role_group` VALUES ('1477483533768327170', '1', '10');
+INSERT INTO `sys_role_group` VALUES ('1477483533768327171', '1', '20');
+INSERT INTO `sys_role_group` VALUES ('1477483533768327172', '1', '30');
+INSERT INTO `sys_role_group` VALUES ('1477483533768327173', '1', '1419183541404688386');
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -2291,82 +2369,84 @@ INSERT INTO `sys_role_menu` VALUES ('1422707565732622396', '100', '1388163373723
 INSERT INTO `sys_role_menu` VALUES ('1422707565732622397', '100', '1388163373723598851');
 INSERT INTO `sys_role_menu` VALUES ('1422707565732622398', '100', '1388163373723598852');
 INSERT INTO `sys_role_menu` VALUES ('1422707565732622399', '100', '1388163373723598853');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287938', '1', '10');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287939', '1', '11');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287940', '1', '20');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287941', '1', '1330895557467602946');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287942', '1', '1330895557467602947');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287943', '1', '1330895557467602948');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287944', '1', '1330895557467602949');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287945', '1', '1330895557467602950');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287946', '1', '1330898330087112706');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287947', '1', '1330898330087112707');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287948', '1', '1330898330087112708');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287949', '1', '1330898330087112709');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287950', '1', '1330898330087112710');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287951', '1', '1330898330930167809');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287952', '1', '1330898330930167810');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287953', '1', '1330898330930167811');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287954', '1', '1330898330930167812');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287955', '1', '1330898330930167813');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287956', '1', '1330898329399246850');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287957', '1', '1330898329399246851');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287958', '1', '1330898329399246852');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287959', '1', '1330898329399246853');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287960', '1', '1330898329399246854');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287961', '1', '1423791489158344706');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287962', '1', '1423791489158344707');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287963', '1', '1423791489158344708');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287964', '1', '1423791489158344709');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287965', '1', '1423791489158344710');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287966', '1', '1330898331173437442');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287967', '1', '1330898331173437443');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287968', '1', '1330898331173437444');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287969', '1', '1330898331173437445');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287970', '1', '1330898331173437446');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287971', '1', '1330898329785122817');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287972', '1', '1330898329785122818');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287973', '1', '1330898329785122819');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287974', '1', '1330898329785122820');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287975', '1', '1330898329785122821');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287976', '1', '1330898330233913345');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287977', '1', '1330898330233913346');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287978', '1', '1330898330233913348');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287979', '1', '1330898330233913349');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287980', '1', '1330898330233913347');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287981', '1', '1390339339984146433');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287982', '1', '1390339339984146434');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287983', '1', '1390339339984146435');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287984', '1', '1390339339984146436');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287985', '1', '1390339339984146437');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287986', '1', '1330898331462844418');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287987', '1', '1330898331462844419');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287988', '1', '1330898331462844420');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287989', '1', '1330898331462844421');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287990', '1', '1330898331462844422');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287991', '1', '1330898330678509570');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287992', '1', '1330898330678509571');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287993', '1', '1330898330678509572');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287994', '1', '1330898330678509573');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287995', '1', '1330898330678509574');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287996', '1', '1330898330795950081');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287997', '1', '1330898330795950082');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287998', '1', '1330898330795950083');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885287999', '1', '1330898330795950084');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288000', '1', '1330898330795950085');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288001', '1', '1388163373723598849');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288002', '1', '1388163373723598850');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288003', '1', '1388163373723598851');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288004', '1', '1388163373723598852');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288005', '1', '1388163373723598853');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288006', '1', '30');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288007', '1', '1364834446406103042');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288008', '1', '1364834446406103043');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288009', '1', '1364834446406103044');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288010', '1', '1364834446406103045');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288011', '1', '1364834446406103046');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288012', '1', '40');
-INSERT INTO `sys_role_menu` VALUES ('1469200394885288013', '1', '1469200281613914114');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412609', '1', '10');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412610', '1', '11');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412611', '1', '20');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412612', '1', '1330895557467602946');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412613', '1', '1330895557467602947');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412614', '1', '1330895557467602948');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412615', '1', '1330895557467602949');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412616', '1', '1330895557467602950');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412617', '1', '1330898330087112706');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412618', '1', '1330898330087112707');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412619', '1', '1330898330087112708');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412620', '1', '1330898330087112709');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412621', '1', '1330898330087112710');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412622', '1', '1330898330930167809');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412623', '1', '1330898330930167810');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412624', '1', '1330898330930167811');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412625', '1', '1330898330930167812');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412626', '1', '1330898330930167813');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412627', '1', '1330898329399246850');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412628', '1', '1330898329399246851');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412629', '1', '1330898329399246852');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412630', '1', '1330898329399246853');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412631', '1', '1330898329399246854');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412632', '1', '1423791489158344706');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412633', '1', '1423791489158344707');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412634', '1', '1423791489158344708');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412635', '1', '1423791489158344709');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412636', '1', '1423791489158344710');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412637', '1', '1330898331173437442');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412638', '1', '1330898331173437443');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412639', '1', '1330898331173437444');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412640', '1', '1330898331173437445');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412641', '1', '1330898331173437446');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412642', '1', '1330898329785122817');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412643', '1', '1330898329785122818');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412644', '1', '1330898329785122819');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412645', '1', '1330898329785122820');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412646', '1', '1330898329785122821');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412647', '1', '1330898330233913345');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412648', '1', '1330898330233913346');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412649', '1', '1330898330233913348');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412650', '1', '1330898330233913349');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412651', '1', '1330898330233913347');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412652', '1', '1390339339984146433');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412653', '1', '1390339339984146434');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412654', '1', '1390339339984146435');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412655', '1', '1390339339984146436');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412656', '1', '1390339339984146437');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412657', '1', '1330898331462844418');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412658', '1', '1330898331462844419');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412659', '1', '1330898331462844420');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412660', '1', '1330898331462844421');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412661', '1', '1330898331462844422');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412662', '1', '1330898330678509570');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412663', '1', '1330898330678509571');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412664', '1', '1330898330678509572');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412665', '1', '1330898330678509573');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412666', '1', '1330898330678509574');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412667', '1', '1330898330795950081');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412668', '1', '1330898330795950082');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412669', '1', '1330898330795950083');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412670', '1', '1330898330795950084');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412671', '1', '1330898330795950085');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412672', '1', '1388163373723598849');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412673', '1', '1388163373723598850');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412674', '1', '1388163373723598851');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412675', '1', '1388163373723598852');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412676', '1', '1388163373723598853');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412677', '1', '30');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412678', '1', '1364834446406103042');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412679', '1', '1364834446406103043');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412680', '1', '1364834446406103044');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412681', '1', '1364834446406103045');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412682', '1', '1364834446406103046');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412683', '1', '40');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412684', '1', '1469200281613914114');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412685', '1', '100');
+INSERT INTO `sys_role_menu` VALUES ('1477483533705412686', '1', '1477483348354924546');
 
 -- ----------------------------
 -- Table structure for sys_task
