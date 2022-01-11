@@ -57,19 +57,6 @@ public class ConfigDto implements Dto {
     @JsonTimestamp
     private LocalDateTime createAt;
 
-    @JsonTimestamp
-    private LocalDateTime test1;
-
-    @JsonTimestamp
-    private List<LocalDateTime> test2;
-
-    @JsonTimestamp
-    private Map<String, LocalTime> test3;
-
-    @JsonTimestamp
-    private LocalDate[] test4;
-
-
     public static ConfigDo toDo(ConfigDto dto) {
         if (dto == null) {
             return null;
@@ -82,13 +69,6 @@ public class ConfigDto implements Dto {
             aDo.setEnabled(dto.getEnabled());
             aDo.setRemark(dto.getRemark());
             aDo.setCreateAt(dto.getCreateAt());
-
-            System.out.println(dto.getTest1());
-            System.out.println(dto.getTest2());
-            System.out.println(dto.getTest3());
-            System.out.println(dto.getTest4().length);
-
-
             return aDo;
         }
     }
