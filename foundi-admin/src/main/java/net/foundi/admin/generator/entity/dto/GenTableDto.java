@@ -7,6 +7,7 @@ package net.foundi.admin.generator.entity.dto;
 
 import lombok.Data;
 import net.foundi.admin.generator.entity.domain.GenTableDo;
+import net.foundi.framework.entity.jackson.JsonTimestamp;
 import net.foundi.framework.entity.validation.EditGroup;
 
 import javax.validation.constraints.NotBlank;
@@ -40,6 +41,7 @@ public class GenTableDto implements Serializable {
     private String tableComment;
 
     /** 表创建时间 */
+    @JsonTimestamp
     private LocalDateTime tableCreateTime;
 
     /** 数据库引擎 */
