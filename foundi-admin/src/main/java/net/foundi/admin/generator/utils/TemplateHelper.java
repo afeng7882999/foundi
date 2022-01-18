@@ -45,17 +45,13 @@ import java.util.zip.ZipOutputStream;
 @SuppressWarnings("all")
 public class TemplateHelper {
 
-    private static final String TIMESTAMP = "Timestamp" ;
-
-    private static final String DATE = "Date" ;
-
-    private static final String BIGDECIMAL = "BigDecimal" ;
-
-    public static final String PK = "PRI" ;
-
-    public static final String EXTRA = "auto_increment" ;
-
-    public static final String TEMPLATE_PATH = "/net/foundi/admin/generator/template/" ;
+    private static final String TIME = "LocalTime";
+    private static final String DATE = "LocalDate";
+    private static final String DATETIME = "LocalDateTime";
+    private static final String BIGDECIMAL = "BigDecimal";
+    public static final String PK = "PRI";
+    public static final String EXTRA = "auto_increment";
+    public static final String TEMPLATE_PATH = "/net/foundi/admin/generator/template/";
 
     private static final String[][] SQL_JAVA_TYPE_MAPPING = {
             {"tinyint", "Integer"},
@@ -74,25 +70,41 @@ public class TemplateHelper {
             {"text", "String"},
             {"mediumtext", "String"},
             {"longtext", "String"},
-            {"date", "LocalDateTime"},
+            {"time", "LocalTime"},
+            {"date", "LocalDate"},
             {"datetime", "LocalDateTime"},
             {"timestamp", "LocalDateTime"}
     };
 
-    private static final String AUTO_INSERT_COLS = "create_by, create_at" ;
-    private static final String AUTO_UPDATE_COLS = "update_by, update_at" ;
-    private static final String VERSION_COL = "version" ;
-    private static final String LOGIC_DELETE_COL = "del_flag" ;
+    private static final String AUTO_INSERT_COLS = "create_by, create_at";
+    private static final String AUTO_UPDATE_COLS = "update_by, update_at";
+    private static final String VERSION_COL = "version";
+    private static final String LOGIC_DELETE_COL = "del_flag";
 
-    private static final String TREE_ID_COL = "id" ;
-    private static final String TREE_NAME_COL = "name" ;
-    private static final String PARENT_ID_COL = "parent_id" ;
-    private static final String SORT_ORDER_COL = "sort" ;
+    private static final String TREE_ID_COL = "id";
+    private static final String TREE_NAME_COL = "name";
+    private static final String PARENT_ID_COL = "parent_id";
+    private static final String SORT_ORDER_COL = "sort";
 
-    public static final String TREE_ID_FIELD = "id" ;
-    public static final String TREE_NAME_FIELD = "name" ;
-    public static final String PARENT_ID_FIELD = "parentId" ;
-    public static final String SORT_ORDER_FIELD = "sort" ;
+    public static final String TREE_ID_FIELD = "id";
+    public static final String TREE_NAME_FIELD = "name";
+    public static final String PARENT_ID_FIELD = "parentId";
+    public static final String SORT_ORDER_FIELD = "sort";
+
+    /**
+     * 代码生成为Map
+     *
+     * @param columns 多个GenTableColumnDo列表
+     * @param table   多个GenTableDo对象
+     * @return Map列表
+     */
+    public static List<Map<String, Object>> generateToMap(List<List<GenTableColumnDo>> columnsList, List<GenTableDo> tables) {
+        List<Map<String, Object>> genList = new ArrayList<>();
+        for (int i = 0; i < tables.size(); i++) {
+            generateToMap(columnsList.get(i), tables.get(i), genList);
+        }
+        return genList;
+    }
 
     /**
      * 代码生成为Map
@@ -101,15 +113,16 @@ public class TemplateHelper {
      * @param table   GenTableDo对象
      * @return Map列表
      */
-    public static List<Map<String, Object>> generateToMap(List<GenTableColumnDo> columns, GenTableDo table) {
+    private static void generateToMap(List<GenTableColumnDo> columns, GenTableDo table,
+                                      List<Map<String, Object>> genList) {
         Map<String, Object> params = getGenerateParams(columns, table);
-        List<Map<String, Object>> genList = new ArrayList<>();
         // 生成后端代码
         Configuration cfg = getFreemarkerCfg();
         for (String templateName : getAdminTemplateTypes(table)) {
             String filePath = getAdminFilePath(templateName, table, params.get("className").toString(), "");
             Map<String, Object> map = new HashMap<>(1);
             map.put("content", renderToString(cfg, templateName + ".ftl", params));
+            map.put("path", filePath);
             map.put("name", FileUtils.getName(filePath));
             genList.add(map);
         }
@@ -120,10 +133,10 @@ public class TemplateHelper {
             Map<String, Object> map = new HashMap<>(1);
             Template template = getTemplate(cfg, templateName + ".ftl");
             map.put("content", renderToString(template, params));
+            map.put("path", filePath);
             map.put("name", FileUtils.getName(filePath));
             genList.add(map);
         }
-        return genList;
     }
 
     /**
@@ -150,7 +163,7 @@ public class TemplateHelper {
      * @param table   GenTableDo对象
      * @return Map列表
      */
-    public static void generateToZip(List<GenTableColumnDo> columns, GenTableDo table, ZipOutputStream zip) {
+    private static void generateToZip(List<GenTableColumnDo> columns, GenTableDo table, ZipOutputStream zip) {
         Map<String, Object> params = getGenerateParams(columns, table);
         // 生成后端代码
         Configuration cfg = getFreemarkerCfg();
@@ -297,14 +310,18 @@ public class TemplateHelper {
         params.put("classNameDash", StringUtils.camelToSnake(lowerClassName, "-"));
         // 存在 Images 字段
         params.put("hasImages", false);
-        // 存在 Timestamp 字段
-        params.put("hasTimestamp", false);
-        // 查询类中存在 Timestamp 字段
-        params.put("queryHasTimestamp", false);
-        // 存在 Date 字段
+        // 存在 LocalTime 字段
+        params.put("hasTime", false);
+        // 存在 LocalDate字段
         params.put("hasDate", false);
-        // 查询类中存在 Date 字段
+        // 存在 LocalDateTime 字段
+        params.put("hasDateTime", false);
+        // 查询类中存在 LocalTime 字段
+        params.put("queryHasTime", false);
+        // 查询类中存在 LocalDate 字段
         params.put("queryHasDate", false);
+        // 查询类中存在 Datetime 字段
+        params.put("queryHasDateTime", false);
         // 存在 BigDecimal 字段
         params.put("hasBigDecimal", false);
         // 查询类中存在 BigDecimal 字段
@@ -380,13 +397,17 @@ public class TemplateHelper {
             if ("image".equals(col.getHtmlType())) {
                 params.put("hasImages", true);
             }
-            // 是否存在 Timestamp 类型的字段
-            if (TIMESTAMP.equals(fieldType)) {
-                params.put("hasTimestamp", true);
+            // 是否存在 LocalTime 类型的字段
+            if (TIME.equals(fieldType)) {
+                params.put("hasTime", true);
             }
-            // 是否存在 Date 类型的字段
+            // 是否存在 LocalDate 类型的字段
             if (DATE.equals(fieldType)) {
                 params.put("hasDate", true);
+            }
+            // 是否存在 LocalDateTime 类型的字段
+            if (DATETIME.equals(fieldType)) {
+                params.put("hasDateTime", true);
             }
             // 是否存在 BigDecimal 类型的字段
             if (BIGDECIMAL.equals(fieldType)) {
@@ -465,13 +486,17 @@ public class TemplateHelper {
                 // 添加到查询列表中
                 queryCols.add(listMap);
 
-                if (TIMESTAMP.equals(fieldType)) {
-                    // 查询 Timestamp 类型
-                    params.put("queryHasTimestamp", true);
+                if (TIME.equals(fieldType)) {
+                    // 查询 LocalTime 类型
+                    params.put("queryHasTime", true);
                 }
                 if (DATE.equals(fieldType)) {
-                    // 查询 Date 类型
+                    // 查询 LocalDate 类型
                     params.put("queryHasDate", true);
+                }
+                if (DATETIME.equals(fieldType)) {
+                    // 查询 Datetime 类型
+                    params.put("queryHasDateTime", true);
                 }
                 if (BIGDECIMAL.equals(fieldType)) {
                     // 查询 BigDecimal 类型
@@ -566,7 +591,7 @@ public class TemplateHelper {
                 return pair[1];
             }
         }
-        return "unknownType" ;
+        return "unknownType";
     }
 
     /**
@@ -629,38 +654,38 @@ public class TemplateHelper {
      * @return 生成代码的文件路径
      */
     private static String getAdminFilePath(String templateType, GenTableDo table, String className, String rootPath) {
-        String packagePath = rootPath + "/src/main/java/" ;
+        String packagePath = rootPath + "/src/main/java/";
         if (!ObjectUtils.isEmpty(table.getPack())) {
-            packagePath += table.getPack().replace(".", "/") + "/" ;
+            packagePath += table.getPack().replace(".", "/") + "/";
         }
-        String projectPath = packagePath + table.getModule().replace(".", "/") + "/" ;
+        String projectPath = packagePath + table.getModule().replace(".", "/") + "/";
 
         if ("do".equals(templateType)) {
-            return projectPath + "entity/domain/" + className + "Do.java" ;
+            return projectPath + "entity/domain/" + className + "Do.java";
         }
         if ("controller".equals(templateType)) {
-            return projectPath + "controller/" + className + "Controller.java" ;
+            return projectPath + "controller/" + className + "Controller.java";
         }
         if ("service".equals(templateType)) {
-            return projectPath + "service/" + className + "Service.java" ;
+            return projectPath + "service/" + className + "Service.java";
         }
         if ("serviceImpl".equals(templateType)) {
-            return projectPath + "service/impl/" + className + "ServiceImpl.java" ;
+            return projectPath + "service/impl/" + className + "ServiceImpl.java";
         }
         if ("dto".equals(templateType)) {
-            return projectPath + "entity/dto/" + className + "Dto.java" ;
+            return projectPath + "entity/dto/" + className + "Dto.java";
         }
         if ("query".equals(templateType)) {
-            return projectPath + "entity/query/" + className + "Query.java" ;
+            return projectPath + "entity/query/" + className + "Query.java";
         }
         if ("sqlMapper".equals(templateType)) {
-            return projectPath + "dao/mapper/" + className + "Mapper.xml" ;
+            return projectPath + "dao/mapper/" + className + "Mapper.xml";
         }
         if ("dao".equals(templateType)) {
-            return projectPath + "dao/" + className + "Dao.java" ;
+            return projectPath + "dao/" + className + "Dao.java";
         }
         if ("sql".equals(templateType)) {
-            return packagePath + className + ".sql" ;
+            return packagePath + className + ".sql";
         }
 
         throw new BusinessException(StringUtils.format("代码生成：不支持的模板类型：{}", templateType));
@@ -698,18 +723,18 @@ public class TemplateHelper {
      * @return 生成代码的文件路径
      */
     private static String getFrontFilePath(String templateType, String moduleName, String className, String rootPath) {
-        String path = rootPath + "/web/" ;
+        String path = rootPath + "/web/";
         String pagePath = path + "src/views/modules/" + StringUtils.camelToSnake(moduleName, "-")  + "/"
-                + StringUtils.camelToSnake(className, "-") + "/" ;
+                + StringUtils.camelToSnake(className, "-") + "/";
         String apiPath = path + "src/api/" + StringUtils.camelToSnake(moduleName, "-") + "/";
         if ("edit.vue".equals(templateType)) {
-            return pagePath + "edit.vue" ;
+            return pagePath + "edit.vue";
         }
         if ("index.vue".equals(templateType)) {
-            return pagePath + "index.vue" ;
+            return pagePath + "index.vue";
         }
         if ("detail.vue".equals(templateType)) {
-            return pagePath + "detail.vue" ;
+            return pagePath + "detail.vue";
         }
         if ("api.ts".equals(templateType)) {
             return apiPath + StringUtils.camelToSnake(className, "-") + ".ts";

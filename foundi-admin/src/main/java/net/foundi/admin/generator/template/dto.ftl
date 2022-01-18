@@ -13,12 +13,16 @@ import java.util.stream.Collectors;
 
 import net.foundi.framework.entity.validation.EditGroup;
 import net.foundi.framework.entity.dto.Dto;
+import net.foundi.framework.entity.jackson.JsonTimestamp;
 import ${package}.${moduleName}.entity.domain.${className}Do;
-<#if hasDate>
-import java.util.Date;
+<#if hasTime>
+import java.time.LocalTime;
 </#if>
-<#if hasTimestamp>
-import java.sql.Timestamp;
+<#if hasDate>
+import java.time.LocalDate;
+</#if>
+<#if hasDateTime>
+import java.time.LocalDateTime;
 </#if>
 <#if hasBigDecimal>
 import java.math.BigDecimal;
@@ -50,6 +54,9 @@ public class ${className}Dto implements Dto {
         <#else>
     @NotNull(message = "${column.columnComment}不能为空")
         </#if>
+    </#if>
+    <#if column.fieldType="LocalDateTime">
+    @JsonTimestamp
     </#if>
     private ${column.fieldType} ${column.lowerFieldName};
 

@@ -10,9 +10,14 @@ import net.foundi.framework.entity.query.Criterion;
 import net.foundi.framework.entity.query.Order;
 </#if>
 
-<#if queryHasTimestamp>
+<#if queryHasTime>
+import java.time.LocalTime;
 </#if>
 <#if queryHasDate>
+import java.time.LocalDate;
+</#if>
+<#if queryHasDateTime>
+import java.time.LocalDateTime;
 </#if>
 <#if queryHasBigDecimal>
 </#if>

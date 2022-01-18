@@ -8,11 +8,14 @@ package ${package}.${moduleName}.entity.domain;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-<#if hasTimestamp>
-import java.sql.Timestamp;
+<#if hasTime>
+import java.time.LocalTime;
 </#if>
 <#if hasDate>
-import java.util.Date;
+import java.time.LocalDate;
+</#if>
+<#if hasDateTime>
+import java.time.LocalDateTime;
 </#if>
 <#if hasBigDecimal>
 import java.math.BigDecimal;
