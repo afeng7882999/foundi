@@ -750,7 +750,7 @@ public class TemplateHelper {
      * @return Configuration
      */
     private static Configuration getFreemarkerCfg() {
-        Configuration cfg = new Configuration(Configuration.VERSION_2_3_30);
+        Configuration cfg = new Configuration(Configuration.VERSION_2_3_31);
         cfg.setLocalizedLookup(false);
         cfg.setDefaultEncoding(FoundiConst.DEFAULT_CHARSET);
         cfg.setTemplateLoader(new ClassTemplateLoader(TemplateHelper.class, TEMPLATE_PATH));
@@ -767,7 +767,7 @@ public class TemplateHelper {
         try {
             return cfg.getTemplate(resource);
         } catch (IOException e) {
-            throw new BusinessException(StringUtils.format("代码生成：无法找到代码模板：{}", resource), e);
+            throw new BusinessException(StringUtils.format("代码生成：无法找到代码模板，或模板格式有误：{}", resource), e);
         }
     }
 

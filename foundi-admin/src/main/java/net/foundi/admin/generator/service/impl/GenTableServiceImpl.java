@@ -191,7 +191,7 @@ public class GenTableServiceImpl extends BaseServiceImpl<GenTableDao, GenTableDo
         try {
             return TemplateHelper.generateToMap(columnsList, tableList);
         } catch (Exception e) {
-            throw new BusinessException("生成失败，请先配置生成参数");
+            throw new BusinessException("生成失败，请先配置生成参数", e);
         }
     }
 

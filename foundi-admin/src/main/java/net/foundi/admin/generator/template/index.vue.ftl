@@ -1,47 +1,80 @@
 <template>
-  <div class="page-${lowerClassName} fd-page" :style="pageMinHeight" ref="moduleRoot">
+  <div ref="moduleRoot" :style="pageMinHeight" class="page-${moduleNameCamel}-${lowerClassName} fd-page">
     <fd-page-header v-show="showPageHeader"></fd-page-header>
-    <div class="fd-page-form">
+    <div class="fd-page__form">
     <#if hasQuery>
-      <el-form size="medium" :inline="true" :model="query" @keyup.enter="queryList()" ref="queryForm">
-        <transition @after-enter="expandAfterEnter" @before-leave="expandBeforeLeave" @enter="expandEnter" name="expand">
-          <div class="page-form-query" v-show="queryFormShow">
+      <el-form ref="queryForm" :inline="true" :model="state.query" size="medium" @keyup.enter="queryList()">
+        <transition
+          name="expand"
+          @enter="expandEnter"
+          @after-enter="expandAfterEnter"
+          @before-leave="expandBeforeLeave"
+        >
+          <div v-show="state.queryFormShow" class="fd-page__query">
       <#list queryColumns as col>
         <#if col.htmlType == "input" || col.htmlType == "textarea">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-input v-model="query.${col.lowerFieldName}" clearable placeholder="请输入${col.columnBrief}" />
+              <el-input v-model="state.query.${col.lowerFieldName}" clearable placeholder="请输入${col.columnBrief}" />
             </el-form-item>
         <#elseIf (col.htmlType == "select" || col.htmlType == "radio") && col.queryType != "IN">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-select v-model="query.${col.lowerFieldName}" size="medium">
-                <el-option v-for="item in dicts.${col.dictType?uncapFirst}" :key="item.itemKey" :label="item.itemValue" :value="item.itemKey"></el-option>
+              <el-select v-model="state.query.${col.lowerFieldName}" clearable placeholder="请选择${col.columnBrief}">
+                <el-option
+                  v-for="item in state.dicts.${col.dictType?uncapFirst}"
+                  :key="item.itemKey"
+                  :label="item.itemValue"
+                  :value="item.itemKey"
+                ></el-option>
               </el-select>
             </el-form-item>
         <#elseIf (col.htmlType == "select" || col.htmlType == "radio" || col.htmlType == "checkbox") && col.queryType == "IN">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <fd-tree-select :dataList="dicts.${col.dictType?uncapFirst}" v-model="query.${col.lowerFieldName}" :selectParams="{ multiple: true, placeholder:'请选择${col.columnBrief}' }" :treeFields="{ idField:'itemKey', labelField:'itemValue' }"></fd-tree-select>
+              <el-select v-model="state.query.${col.lowerFieldName}" multiple clearable placeholder="请选择${col.columnBrief}">
+                <el-option
+                  v-for="item in state.dicts.${col.dictType?uncapFirst}"
+                  :key="item.itemKey"
+                  :label="item.itemValue"
+                  :value="item.itemKey"
+                ></el-option>
+              </el-select>
             </el-form-item>
         <#elseIf col.htmlType == "checkbox" && col.fieldType == "Boolean">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-checkbox v-model="query.${col.lowerFieldName}"></el-checkbox>
+              <el-checkbox v-model="state.query.${col.lowerFieldName}"></el-checkbox>
             </el-form-item>
         <#elseIf col.htmlType == "datetime">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-date-picker clearable v-model="query.${col.lowerFieldName}" type="date" format="YYYY-MM-DD" placeholder="选择${col.columnBrief}"></el-date-picker>
+              <el-date-picker
+                v-model="state.query.${col.lowerFieldName}"
+                clearable
+                format="YYYY-MM-DD"
+                value-format="x"
+                placeholder="选择${col.columnBrief}"
+                type="date"
+              ></el-date-picker>
             </el-form-item>
         <#elseIf col.htmlType == "daterange">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-date-picker v-model="query.${col.lowerFieldName}" type="daterange" format="YYYY-MM-DD" range-separator="-" :default-time="[new Date('0 0:0:0'), new Date('0 23:59:59')]" start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
+              <el-date-picker
+                v-model="state.query.${col.lowerFieldName}"
+                :default-time="[new Date('0 0:0:0'), new Date('0 23:59:59')]"
+                end-placeholder="结束日期"
+                format="YYYY-MM-DD"
+                value-format="x"
+                range-separator="-"
+                start-placeholder="开始日期"
+                type="daterange"
+              ></el-date-picker>
             </el-form-item>
         </#if>
       </#list>
             <el-form-item>
-              <el-button type="primary" @click="queryList">
-                <fd-svg-icon icon="search" class="in-button"></fd-svg-icon>
+              <el-button plain type="primary" @click="queryList">
+                <fd-icon icon="search" class="is-in-btn"></fd-icon>
                 查询
               </el-button>
               <el-button @click="resetQuery">
-                <fd-svg-icon icon="refresh" class="in-button"></fd-svg-icon>
+                <fd-icon icon="refresh" class="is-in-btn"></fd-icon>
                 清空
               </el-button>
             </el-form-item>
@@ -49,72 +82,159 @@
         </transition>
       </el-form>
     </#if>
-      <div class="page-form-action">
-        <el-button type="danger" :disabled="selectedNodes.length <= 0" @click="del()" v-waves size="medium" v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:delete')">
-          <fd-svg-icon icon="delete" class="in-button"></fd-svg-icon>
+      <div class="fd-page__action">
+        <el-button
+          v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:delete')"
+          v-waves
+          :disabled="state.selectedNodes.length <= 0"
+          plain
+          size="medium"
+          type="danger"
+          @click="del()"  
+        >
+          <fd-icon class="is-in-btn" icon="delete"></fd-icon>
           批量删除
         </el-button>
-        <div class="right-action">
+        <div class="action-right">
     <#if isFrontEdit>
-          <el-button type="primary" v-waves size="medium" @click="showEdit()" v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:add')">新增</el-button>
+          <el-button
+            v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:add')"
+            v-waves
+            plain
+            size="medium"
+            type="primary"
+            @click="showEdit()"
+          >
+            新增
+          </el-button>
     </#if>
-          <el-button v-waves size="medium" @click="exportData()" v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:export')">导出数据</el-button>
+          <el-button
+            v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:export')"
+            v-waves
+            plain
+            size="medium"
+            @click="exportData()"
+          >
+            导出数据
+          </el-button>
     <#if hasQuery>
           <el-divider direction="vertical" class="action-divider"></el-divider>
-          <el-tooltip :show-after="500" :content="queryFormShow ? '隐藏查询表单' : '显示查询表单'" effect="dark" placement="top">
-            <fd-svg-button icon="double-down" class="action-toggle-btn" :class="queryFormShow ? 'expanded' : ''" @click="toggleQueryForm()"></fd-svg-button>
+          <el-tooltip
+            :content="state.queryFormShow ? '隐藏查询表单' : '显示查询表单'"
+            :show-after="500"
+            effect="dark"
+            placement="top"
+          >
+            <fd-svg-button
+              class="action-toggle-btn"
+              :class="state.queryFormShow ? 'expanded' : ''"
+              icon="double-down"
+              @click="toggleQueryForm()"
+            ></fd-svg-button>
           </el-tooltip>
     </#if>
         </div>
       </div>
     </div>
-    <div class="fd-page-table border">
+    <div class="fd-page__table is-bordered">
     <#if isTree>
       <el-table
-        :data="data"
-        :indent="15"
         ref="table"
+        v-loading="state.loading"
+        :data="state.data"
         :default-expand-all="true"
+        :indent="15"
         row-key="id"
-        v-loading="loading"
-        @select="selectHandle"
-        @select-all="selectAllHandle"
         style="width: 100%"
+        @select="onSelect"
+        @select-all="onSelectAll"
       >
     <#else>
-      <el-table :data="data" @selection-change="selectionChangeHandle" row-key="${pkLowerFieldName}" v-loading="loading">
+      <el-table
+        v-loading="state.loading"
+        :data="state.data"
+        row-key="${pkLowerFieldName}"
+        @selection-change="onSelectionChange"
+      >
     </#if>
-        <el-table-column align="center" header-align="center" type="selection" width="40"></el-table-column>
+        <el-table-column align="left" header-align="left" type="selection" width="40"></el-table-column>
     <#list listColumns as col>
+      <#assign idx = ["LocalTime", "LocalDate", "LocalDateTime"]?seqIndexOf(col.fieldType)>
       <#if col.isDict>
-        <el-table-column align="center" header-align="center" :show-overflow-tooltip="true" label="${col.columnBrief}" prop="${col.lowerFieldName}">
+        <el-table-column
+          :show-overflow-tooltip="true"
+          align="left"
+          header-align="left"
+          label="${col.columnBrief}"
+          prop="${col.lowerFieldName}"
+        >
           <template #default="scope">
-            <span>{{ dictVal(dicts.${col.dictType?uncapFirst}, scope.row.${col.lowerFieldName}) }}</span>
+            <span>{{ dictVal(state.dicts.${col.dictType?uncapFirst}, scope.row.${col.lowerFieldName}) }}</span>
+          </template>
+        </el-table-column>
+      <#elseIf idx != -1>
+        <el-table-column
+          :show-overflow-tooltip="true"
+          align="left"
+          header-align="left"
+          label="${col.columnBrief}"
+          prop="${col.lowerFieldName}"
+          width="200"
+        >
+          <template #default="scope">
+            <span>{{ dateTimeStr(scope.row.${col.lowerFieldName}<#if idx == 0>, 'time'<#elseIf idx == 1>, 'date'</#if>) }}</span>
           </template>
         </el-table-column>
       <#else>
-        <el-table-column align="center" header-align="center" :show-overflow-tooltip="true" label="${col.columnBrief}" prop="${col.lowerFieldName}"></el-table-column>
+        <el-table-column
+          :show-overflow-tooltip="true"
+          align="left"
+          header-align="left"
+          label="${col.columnBrief}"
+          prop="${col.lowerFieldName}"
+        ></el-table-column>
       </#if>
     </#list>
-        <el-table-column align="center" fixed="right" header-align="center" label="操作" width="100">
+        <el-table-column align="left" fixed="right" header-align="left" label="操作" width="100">
           <template #default="scope">
     <#if isFrontDetail>
             <el-tooltip content="详细" placement="top" :show-after="500">
-              <el-button @click="showDetail(scope.$index)" class="fd-tb-act tb-act-detail" plain type="primary" size="mini" v-show="hasAuth('system:operLog:delete')">
-                <fd-svg-icon icon="view-grid-detail"></fd-svg-icon>
+              <el-button
+                v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:delete')"
+                class="fd-tb-act"
+                plain
+                size="mini"
+                type="primary"
+                @click="showDetail(scope.$index)"
+              >
+                <fd-icon icon="view-grid-detail"></fd-icon>
               </el-button>
             </el-tooltip>
     </#if>
     <#if isFrontEdit>
             <el-tooltip content="编辑" placement="top" :show-after="500">
-              <el-button @click="showEdit(scope.row.id)" class="fd-tb-act tb-act-edit" plain size="mini" type="success" v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:edit')">
-                <fd-svg-icon icon="write"></fd-svg-icon>
+              <el-button
+                v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:edit')"
+                class="fd-tb-act"
+                plain
+                size="mini"
+                type="success"
+                @click="showEdit(scope.row.id)"
+              >
+                <fd-icon icon="write"></fd-icon>
               </el-button>
             </el-tooltip>
     </#if>
             <el-tooltip content="删除" placement="top" :show-after="500">
-              <el-button @click="del(scope.row, scope.row.k)" class="fd-tb-act tb-act-delete" plain size="mini" type="danger" v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:delete')">
-                <fd-svg-icon icon="close"></fd-svg-icon>
+              <el-button
+                v-show="hasAuth('${moduleNameCamel}:${lowerClassName}:delete')"
+                class="fd-tb-act"
+                plain
+                size="mini"
+                type="danger"
+                @click="del(scope.row, scope.row.k)"
+              >
+                <fd-icon icon="close"></fd-icon>
               </el-button>
             </el-tooltip>
           </template>
@@ -122,31 +242,36 @@
       </el-table>
     <#if !isTree>
       <el-pagination
-        :current-page="current"
-        :page-size="size"
-        :page-sizes="[10, 20, 50, 100, 200]"
-        :page-count="total"
-        :total="count"
         :background="true"
+        :current-page="state.current"
+        :page-count="state.total"
+        :page-size="state.size"
+        :page-sizes="[10, 20, 50, 100, 200]"
+        :total="state.count"
+        layout="total, sizes, prev, pager, next, jumper"
         @current-change="pageChange"
         @size-change="sizeChange"
-        layout="total, sizes, prev, pager, next, jumper"
       >
       </el-pagination>
     </#if>
     </div>
     <el-backtop></el-backtop>
     <#if isFrontEdit>
-    <edit @refresh-data-list="getList" ref="editDialog" v-if="editShow"></edit>
+    <edit v-if="state.editShow" ref="editDialog" @refresh-data-list="getList"></edit>
     </#if>
     <#if isFrontDetail>
-    <detail @open-edit-dialog="showEdit" ref="detailDialog" v-if="detailShow"></detail>
+    <detail v-if="state.detailShow" ref="detailDialog" @open-edit-dialog="showEdit"></detail>
     </#if>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs } from 'vue'
+export default {
+  name: '${moduleNameCamel?capFirst}${className}'
+}
+</script>
+
+<script setup lang="ts">
 <#if isTree>
 import useTree from '@/components/crud/use-tree'
 import { ${lowerClassName}Fields, ${lowerClassName}TreeFields,<#if hasDict> ${lowerClassName}Dicts,</#if><#if hasQuery> ${lowerClassName}Query,</#if> ${lowerClassName}List, ${lowerClassName}Del, ${lowerClassName}Export } from '@/api/${moduleNameDash}/${classNameDash}'
@@ -162,39 +287,82 @@ import Detail from './detail.vue'
 </#if>
 import useExpandTransition from '@/components/transition/use-expand-transition'
 
-export default defineComponent({
-  name: '${moduleNameCamel?capFirst}${className}',
-  components: { <#if isFrontEdit>Edit,</#if><#if isFrontDetail> Detail</#if> },
-  setup() {
-    const stateOption = {
-      idField: ${lowerClassName}Fields.idField,
+const stateOption = {
+  idField: ${lowerClassName}Fields.idField,
 <#if isTree>
-      treeFields: ${lowerClassName}TreeFields,
+  treeFields: ${lowerClassName}TreeFields,
 </#if>
-      listApi: ${lowerClassName}List,
-      delApi: ${lowerClassName}Del,
-      exportApi: ${lowerClassName}Export,
+  listApi: ${lowerClassName}List,
+  delApi: ${lowerClassName}Del,
+  exportApi: ${lowerClassName}Export,
 <#if hasDict>
-      dicts: ${lowerClassName}Dicts,
+  dicts: ${lowerClassName}Dicts,
 </#if>
 <#if hasQuery>
-      query: ${lowerClassName}Query
+  query: ${lowerClassName}Query
 </#if>
-    }
+}
 
 <#if isTree>
-    const { mixRefs, mixState, mixComputed, mixMethods } = useTree(stateOption)
+const { mixRefs, mixState: state, mixComputed, mixMethods } = useTree(stateOption)
+const { queryForm<#if isFrontEdit>, editDialog</#if><#if isFrontDetail>, detailDialog</#if> } = mixRefs
+const { pageMinHeight, showPageHeader } = mixComputed
+const {
+  <#if hasQuery>
+  queryList,
+  resetQuery,
+  toggleQueryForm,
+  </#if>
+  <#if hasDict>
+  dictVal,
+  </#if>
+  <#if hasTime || hasDate || hasDateTime>
+  dateTimeStr,
+  </#if>
+  <#if isFrontEdit>
+  showEdit,
+  </#if>
+  <#if isFrontDetail>
+  showDetail,
+  </#if>
+  getList,
+  del,
+  onSelect,
+  onSelectAll,
+  hasAuth,
+  exportData
+} = mixMethods
 <#else>
-    const { mixRefs, mixState, mixComputed, mixMethods } = useList(stateOption)
+const { mixRefs, mixState: state, mixComputed, mixMethods } = useList(stateOption)
+const { queryForm<#if isFrontEdit>, editDialog</#if><#if isFrontDetail>, detailDialog</#if> } = mixRefs
+const { pageMinHeight, showPageHeader } = mixComputed
+const {
+  <#if hasQuery>
+  queryList,
+  resetQuery,
+  toggleQueryForm,
+  </#if>
+  <#if hasDict>
+  dictVal,
+  </#if>
+  <#if hasTime || hasDate || hasDateTime>
+  dateTimeStr,
+  </#if>
+  <#if isFrontEdit>
+  showEdit,
+  </#if>
+  <#if isFrontDetail>
+  showDetail,
+  </#if>
+  getList,
+  pageChange,
+  sizeChange,
+  del,
+  onSelectionChange,
+  hasAuth,
+  exportData
+} = mixMethods
 </#if>
 
-    return {
-      ...mixRefs,
-      ...toRefs(mixState),
-      ...mixComputed,
-      ...mixMethods,
-      ...useExpandTransition()
-    }
-  }
-})
+const { expandEnter, expandAfterEnter, expandBeforeLeave } = useExpandTransition()
 </script>
