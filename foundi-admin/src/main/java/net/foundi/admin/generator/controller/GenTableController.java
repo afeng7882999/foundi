@@ -116,10 +116,10 @@ public class GenTableController extends BaseController {
     }
 
     @ApiOperation("生成代码并预览")
-    @GetMapping(value = "/preview/{id}")
+    @GetMapping(value = "/preview/{ids}")
     @PreAuthorize("@authz.hasPerm('generator:genTable:edit')")
-    public WebReturn generator(@PathVariable Long id) {
-        List<Map<String, Object>> result = genTableService.generateToMap(id);
+    public WebReturn generator(@PathVariable("ids") List<Long> ids) {
+        List<Map<String, Object>> result = genTableService.generateToMap(ids);
         return WebReturn.ok().content(result);
     }
 

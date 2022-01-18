@@ -86,10 +86,10 @@ public interface GenTableService extends BaseService<GenTableDo> {
     /**
      * 生成代码，Map形式
      *
-     * @param id 表ID
+     * @param ids 表ID列表
      * @return List<Map < String, Object>>
      */
-    List<Map<String, Object>> generateToMap(Long id);
+    List<Map<String, Object>> generateToMap(List<Long> ids);
 
     /**
      * 生成代码，byte数组形式，用于下载

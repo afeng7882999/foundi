@@ -173,15 +173,23 @@ public class GenTableServiceImpl extends BaseServiceImpl<GenTableDao, GenTableDo
     }
 
     @Override
-    public List<Map<String, Object>> generateToMap(Long id) {
-        GenTableDo table = this.getById(id);
-        if (table == null) {
-            throw new BusinessException("请先配置生成参数");
+    public List<Map<String, Object>> generateToMap(List<Long> ids) {
+        List<GenTableDo> tableList = new ArrayList<>();
+        List<List<GenTableColumnDo>> columnsList = new ArrayList<>();
+
+        for (Long id : ids) {
+            GenTableDo table = this.getById(id);
+            if (table == null) {
+                throw new BusinessException("请先配置生成参数");
+            }
+            List<GenTableColumnDo> columns = genTableColumnMapper.selectList(new QueryWrapper<GenTableColumnDo>().lambda()
+                    .eq(GenTableColumnDo::getTableName, table.getTableName()));
+            tableList.add(table);
+            columnsList.add(columns);
         }
-        List<GenTableColumnDo> columns = genTableColumnMapper.selectList(new QueryWrapper<GenTableColumnDo>().lambda()
-                .eq(GenTableColumnDo::getTableName, table.getTableName()));
+
         try {
-            return TemplateHelper.generateToMap(columns, table);
+            return TemplateHelper.generateToMap(columnsList, tableList);
         } catch (Exception e) {
             throw new BusinessException("生成失败，请先配置生成参数");
         }
