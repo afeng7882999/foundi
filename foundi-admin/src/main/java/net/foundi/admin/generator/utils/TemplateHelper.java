@@ -329,7 +329,7 @@ public class TemplateHelper {
         // 是否需要创建查询
         params.put("hasQuery", false);
         // 是否需要排序
-        params.put("hasOrder", false);
+        params.put("queryHasOrder", false);
         // 自增主键
         params.put("auto", false);
         // 存在字典
@@ -361,6 +361,8 @@ public class TemplateHelper {
         List<Map<String, Object>> queryCols = new ArrayList<>();
         // 保存字典查询字段的信息
         List<Map<String, Object>> queryDictCols = new ArrayList<>();
+        // 保存字典查询排序字段的信息
+        List<Map<String, Object>> queryOrderCols = new ArrayList<>();
         // 存储字典字段信息
         List<Map<String, Object>> dictCols = new ArrayList<>();
         // 存储 between 信息
@@ -510,11 +512,11 @@ public class TemplateHelper {
                     // 添加到字典查询列表中
                     queryDictCols.add(listMap);
                 }
-            }
-
-            // 判断是否有排序
-            if (col.getIsOrder()) {
-                params.put("hasOrder", true);
+                if (col.getIsOrder()) {
+                    // 判断是否有排序
+                    params.put("queryHasOrder", true);
+                    queryOrderCols.add(listMap);
+                }
             }
 
             // 添加到字段列表中
@@ -555,8 +557,10 @@ public class TemplateHelper {
         params.put("queryColumns", queryCols);
         // 保存字典列表
         params.put("dictColumns", dictCols);
-        // 保存字典查询列表中
+        // 保存字典查询列表
         params.put("queryDictColumns", queryDictCols);
+        // 保存查询排序列表
+        params.put("queryOrderColumns", queryOrderCols);
         // 保存查询Between列表
         params.put("queryBetweenColumns", queryBetweenCols);
         // 保存非空字段信息

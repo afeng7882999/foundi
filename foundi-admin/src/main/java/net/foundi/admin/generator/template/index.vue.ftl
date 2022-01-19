@@ -14,11 +14,11 @@
       <#list queryColumns as col>
         <#if col.htmlType == "input" || col.htmlType == "textarea">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-input v-model="state.query.${col.lowerFieldName}" clearable placeholder="请输入${col.columnBrief}" />
+              <el-input v-model="state.query.${col.lowerFieldName}" clearable placeholder="请输入${col.columnBrief}" style="width: 150px" />
             </el-form-item>
         <#elseIf (col.htmlType == "select" || col.htmlType == "radio") && col.queryType != "IN">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-select v-model="state.query.${col.lowerFieldName}" clearable placeholder="请选择${col.columnBrief}">
+              <el-select v-model="state.query.${col.lowerFieldName}" clearable placeholder="请选择${col.columnBrief}" style="width: 150px">
                 <el-option
                   v-for="item in state.dicts.${col.dictType?uncapFirst}"
                   :key="item.itemKey"
@@ -29,7 +29,7 @@
             </el-form-item>
         <#elseIf (col.htmlType == "select" || col.htmlType == "radio" || col.htmlType == "checkbox") && col.queryType == "IN">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-select v-model="state.query.${col.lowerFieldName}" multiple clearable placeholder="请选择${col.columnBrief}">
+              <el-select v-model="state.query.${col.lowerFieldName}" multiple clearable placeholder="请选择${col.columnBrief}" style="width: 150px">
                 <el-option
                   v-for="item in state.dicts.${col.dictType?uncapFirst}"
                   :key="item.itemKey"
@@ -40,9 +40,9 @@
             </el-form-item>
         <#elseIf col.htmlType == "checkbox" && col.fieldType == "Boolean">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
-              <el-checkbox v-model="state.query.${col.lowerFieldName}"></el-checkbox>
+              <el-checkbox v-model="state.query.${col.lowerFieldName}" style="width: 50px"></el-checkbox>
             </el-form-item>
-        <#elseIf col.htmlType == "datetime">
+        <#elseIf col.htmlType == "datetime" && col.queryType != "BETWEEN">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
               <el-date-picker
                 v-model="state.query.${col.lowerFieldName}"
@@ -51,9 +51,10 @@
                 value-format="x"
                 placeholder="选择${col.columnBrief}"
                 type="date"
+                style="width: 150px"
               ></el-date-picker>
             </el-form-item>
-        <#elseIf col.htmlType == "daterange">
+        <#elseIf col.htmlType == "datetime" && col.queryType == "BETWEEN">
             <el-form-item label="${col.columnBrief}" prop="${col.lowerFieldName}">
               <el-date-picker
                 v-model="state.query.${col.lowerFieldName}"
@@ -64,6 +65,7 @@
                 range-separator="-"
                 start-placeholder="开始日期"
                 type="daterange"
+                style="width: 280px"
               ></el-date-picker>
             </el-form-item>
         </#if>
@@ -90,7 +92,7 @@
           plain
           size="medium"
           type="danger"
-          @click="del()"  
+          @click="del()"
         >
           <fd-icon class="is-in-btn" icon="delete"></fd-icon>
           批量删除
@@ -125,12 +127,12 @@
             effect="dark"
             placement="top"
           >
-            <fd-svg-button
+            <fd-icon-button
               class="action-toggle-btn"
               :class="state.queryFormShow ? 'expanded' : ''"
               icon="double-down"
               @click="toggleQueryForm()"
-            ></fd-svg-button>
+            ></fd-icon-button>
           </el-tooltip>
     </#if>
         </div>
@@ -150,12 +152,7 @@
         @select-all="onSelectAll"
       >
     <#else>
-      <el-table
-        v-loading="state.loading"
-        :data="state.data"
-        row-key="${pkLowerFieldName}"
-        @selection-change="onSelectionChange"
-      >
+      <el-table v-loading="state.loading" :data="state.data" row-key="${pkLowerFieldName}" @selection-change="onSelectionChange">
     </#if>
         <el-table-column align="left" header-align="left" type="selection" width="40"></el-table-column>
     <#list listColumns as col>
@@ -170,6 +167,19 @@
         >
           <template #default="scope">
             <span>{{ dictVal(state.dicts.${col.dictType?uncapFirst}, scope.row.${col.lowerFieldName}) }}</span>
+          </template>
+        </el-table-column>
+      <#elseIf col.isOrder>
+        <el-table-column
+          :show-overflow-tooltip="true"
+          align="left"
+          header-align="left"
+          label="${col.columnBrief}"
+          prop="${col.lowerFieldName}"
+          width="200"
+        >
+          <template #header="scope">
+            <fd-table-sort-header :column="scope.column" @sort-changed="sortChanged"></fd-table-sort-header>
           </template>
         </el-table-column>
       <#elseIf idx != -1>
@@ -260,7 +270,7 @@
     <edit v-if="state.editShow" ref="editDialog" @refresh-data-list="getList"></edit>
     </#if>
     <#if isFrontDetail>
-    <detail v-if="state.detailShow" ref="detailDialog" @open-edit-dialog="showEdit"></detail>
+    <detail v-if="state.detailShow" ref="detailDialog"<#if isFrontEdit> @open-edit-dialog="showEdit"</#if>></detail>
     </#if>
   </div>
 </template>
@@ -321,11 +331,11 @@ const {
   </#if>
   <#if isFrontEdit>
   showEdit,
+  getList,
   </#if>
   <#if isFrontDetail>
   showDetail,
   </#if>
-  getList,
   del,
   onSelect,
   onSelectAll,
@@ -350,11 +360,14 @@ const {
   </#if>
   <#if isFrontEdit>
   showEdit,
+  getList,
   </#if>
   <#if isFrontDetail>
   showDetail,
   </#if>
-  getList,
+  <#if queryHasOrder>
+  sortChanged,
+  </#if>
   pageChange,
   sizeChange,
   del,

@@ -1,15 +1,20 @@
 <template>
   <el-dialog
-    v-model="visible"
+    v-model="state.visible"
     :close-on-click-modal="false"
-    :title="`${tableComment}详细 (<#noParse>$</#noParse>{idx + 1} / <#noParse>$</#noParse>{data.length})`"
+    :title="`${tableComment}详细 (<#noParse>$</#noParse>{state.idx + 1} / <#noParse>$</#noParse>{state.data.length})`"
     width="80%"
   >
     <el-descriptions :column="2" :title="`ID: <#noParse>$</#noParse>{state.data[state.idx].${pkLowerFieldName}}`" border size="medium">
 <#list listColumns as col>
+  <#assign idx = ["LocalTime", "LocalDate", "LocalDateTime"]?seqIndexOf(col.fieldType)>
   <#if col.isDict>
       <el-descriptions-item label="${col.columnBrief}" :span="2">
         {{ dictVal(state.dicts.${col.dictType?uncapFirst}, state.data[state.idx].${col.lowerFieldName}) }}
+      </el-descriptions-item>
+  <#elseIf idx != -1>
+      <el-descriptions-item label="${col.columnBrief}" :span="2">
+        {{ dateTimeStr(state.data[state.idx].${col.lowerFieldName}<#if idx == 0>, 'time'<#elseIf idx == 1>, 'date'</#if>) }}
       </el-descriptions-item>
   <#else>
       <el-descriptions-item label="${col.columnBrief}" :span="2">{{ state.data[state.idx].${col.lowerFieldName} }}</el-descriptions-item>
@@ -18,12 +23,12 @@
       <template #extra>
         <el-button v-show="state.ifEditable" size="medium" type="primary" @click="onEdit">编辑</el-button>
         <el-button v-show="state.ifShowNavigation" size="medium" :disabled="prevDisabled" @click="onPrev">
-          <fd-svg-icon icon="left-small" class="is-in-btn"></fd-svg-icon>
+          <fd-icon icon="left-small" class="is-in-btn"></fd-icon>
           上一个
         </el-button>
         <el-button v-show="state.ifShowNavigation" size="medium" :disabled="nextDisabled" @click="onNext">
           下一个
-          <fd-svg-icon icon="right-small" class="is-in-btn right"></fd-svg-icon>
+          <fd-icon icon="right-small" class="is-in-btn right"></fd-icon>
         </el-button>
       </template>
     </el-descriptions>
@@ -71,7 +76,7 @@ const stateOption = {
 
 const { mixState: state, mixComputed, mixMethods } = useDetail(stateOption, emit)
 const { prevDisabled, nextDisabled } = mixComputed
-const { open,<#if hasDict> dictVal,</#if> onEdit, onPrev, onNext, close } = mixMethods
+const { open,<#if hasDict> dictVal,</#if> <#if hasTime || hasDate || hasDateTime> dateTimeStr,</#if> onEdit, onPrev, onNext, close } = mixMethods
 
 defineExpose({
   open,

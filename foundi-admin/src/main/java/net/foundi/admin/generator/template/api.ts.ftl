@@ -37,12 +37,12 @@ export const ${lowerClassName}Dicts = {
 export const ${lowerClassName}Query = {
   <#list queryColumns as col>
     <#if col.htmlType = "daterange">
-  ${col.lowerFieldName}: [] as Date[]<#if col?hasNext>,<#elseIf hasOrder>,</#if>
+  ${col.lowerFieldName}: [] as Date[]<#if col?hasNext>,<#elseIf queryHasOrder>,</#if>
     <#else>
-  ${col.lowerFieldName}: undefined<#if col?hasNext>,<#elseIf hasOrder>,</#if>
+  ${col.lowerFieldName}: undefined<#if col?hasNext>,<#elseIf queryHasOrder>,</#if>
     </#if>
   </#list>
-  <#if hasOrder>
+  <#if queryHasOrder>
   orderByList: [] as string[]
   </#if>
 }

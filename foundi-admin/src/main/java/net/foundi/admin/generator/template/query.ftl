@@ -6,7 +6,7 @@ package ${package}.${moduleName}.entity.query;
 
 import lombok.Data;
 import net.foundi.framework.entity.query.Criterion;
-<#if hasOrder>
+<#if queryHasOrder>
 import net.foundi.framework.entity.query.Order;
 </#if>
 
@@ -108,12 +108,10 @@ public class ${className}Query implements Query {
         </#if>
     </#list>
 </#if>
-<#if hasOrder>
+<#if queryHasOrder>
     /** 排序 */
-    <#list columns as column>
-        <#if column.isOrder>
+    <#list queryOrderColumns as column>
     @Order(field = "${column.lowerFieldName}"<#if column.isSpecialName>, tableField  = "${column.columnName}"</#if>)
-        </#if>
     </#list>
     private List<String> orderByList;
 </#if>
