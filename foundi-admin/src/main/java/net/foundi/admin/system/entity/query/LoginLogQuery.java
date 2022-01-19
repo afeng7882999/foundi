@@ -7,6 +7,7 @@ package net.foundi.admin.system.entity.query;
 import lombok.Data;
 import net.foundi.framework.entity.jackson.JsonTimestamp;
 import net.foundi.framework.entity.query.Criterion;
+import net.foundi.framework.entity.query.Order;
 import net.foundi.framework.entity.query.Query;
 
 import java.time.LocalDateTime;
@@ -43,4 +44,9 @@ public class LoginLogQuery implements Query {
     /** 精确 */
     @Criterion
     private Long statusDict;
+
+    /** 排序 */
+    @Order(field = "userName")
+    @Order(field = "ip")
+    private List<String> orderByList;
 }
