@@ -76,7 +76,7 @@ const stateOption = {
 
 const { mixState: state, mixComputed, mixMethods } = useDetail(stateOption, emit)
 const { prevDisabled, nextDisabled } = mixComputed
-const { open,<#if hasDict> dictVal,</#if> <#if hasTime || hasDate || hasDateTime> dateTimeStr,</#if> onEdit, onPrev, onNext, close } = mixMethods
+const { open,<#if hasDict> dictVal,</#if><#if hasTime || hasDate || hasDateTime> dateTimeStr,</#if> onEdit, onPrev, onNext, close } = mixMethods
 
 defineExpose({
   open,

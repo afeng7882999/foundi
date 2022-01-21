@@ -127,12 +127,9 @@
             effect="dark"
             placement="top"
           >
-            <fd-icon-button
-              class="action-toggle-btn"
-              :class="state.queryFormShow ? 'expanded' : ''"
-              icon="double-down"
-              @click="toggleQueryForm()"
-            ></fd-icon-button>
+            <el-badge :hidden="state.queryFormShow || !state.queryLen" :value="state.queryLen" class="action-badge">
+              <fd-icon-button class="action-query-toggle" icon="search" @click="toggleQueryForm()"></fd-icon-button>
+            </el-badge>
           </el-tooltip>
     </#if>
         </div>
@@ -315,7 +312,7 @@ const stateOption = {
 
 <#if isTree>
 const { mixRefs, mixState: state, mixComputed, mixMethods } = useTree(stateOption)
-const { queryForm<#if isFrontEdit>, editDialog</#if><#if isFrontDetail>, detailDialog</#if> } = mixRefs
+const { <#if isFrontEdit>editDialog<#if isFrontDetail>, </#if></#if><#if isFrontDetail>detailDialog</#if> } = mixRefs
 const { pageMinHeight, showPageHeader } = mixComputed
 const {
   <#if hasQuery>
@@ -375,7 +372,7 @@ const {
   hasAuth,
   exportData
 } = mixMethods
-</#if>
 
 const { expandEnter, expandAfterEnter, expandBeforeLeave } = useExpandTransition()
+</#if>
 </script>

@@ -11,8 +11,8 @@
       <el-form-item label="${col.columnBrief}" prop="parentId">
         <fd-tree-select
           v-model="state.formData.${treeParentId}"
-          :dataList="parentList"
-          :treeFields="{ labelField:'${treeName}' }"
+          :dataList="state.parentList"
+          :treeFields="{ labelField: '${treeName}' }"
           style="width: 100%"
         ></fd-tree-select>
       </el-form-item>
