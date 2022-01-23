@@ -1,8 +1,10 @@
 <template>
-  <el-dialog
+  <fd-right-panel
     v-model="state.visible"
     :close-on-click-modal="false"
-    :title="state.isCreate ? '新增' : '修改'"
+    :modal="false"
+    :title="state.isCreate ? '新增${tableComment}' : '修改${tableComment}'"
+    size="600px"
     @closed="hideDialog"
   >
     <el-form ref="form" :model="state.formData" :rules="state.formRule" label-width="80px" size="medium">
@@ -94,7 +96,7 @@
         <el-button size="medium" type="primary" @click="submit">确定</el-button>
       </span>
     </template>
-  </el-dialog>
+  </fd-right-panel>
 </template>
 
 <script lang="ts">

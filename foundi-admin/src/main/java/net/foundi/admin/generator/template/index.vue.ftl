@@ -1,5 +1,6 @@
 <template>
-  <div ref="moduleRoot" :style="pageMinHeight" class="page-${moduleNameCamel}-${lowerClassName} fd-page">
+  <div ref="moduleRoot" :style="docMinHeight" class="page-${moduleNameCamel}-${lowerClassName} fd-page">
+    <!--  ${menuTitle}管理 -->
     <fd-page-header v-show="showPageHeader"></fd-page-header>
     <div class="fd-page__form">
     <#if hasQuery>
@@ -75,10 +76,7 @@
                 <fd-icon icon="search" class="is-in-btn"></fd-icon>
                 查询
               </el-button>
-              <el-button @click="resetQuery">
-                <fd-icon icon="refresh" class="is-in-btn"></fd-icon>
-                清空
-              </el-button>
+              <el-button @click="resetQuery">清空</el-button>
             </el-form-item>
           </div>
         </transition>
@@ -107,6 +105,7 @@
             type="primary"
             @click="showEdit()"
           >
+            <fd-icon class="is-in-btn" icon="plus"></fd-icon>
             新增
           </el-button>
     </#if>
