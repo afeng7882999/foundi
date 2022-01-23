@@ -84,7 +84,7 @@ public class FileController extends BaseController {
     @ApiOperation("文件上传")
     @PostMapping("/upload")
     @PreAuthorize("@authz.hasPerm('system:file:upload')")
-    @Log(value = "文件操作", param = "'上传文件: ' + #files.![originalFilename]")
+    @Log(value = "文件操作", param = "'filenames: [' + #files.![originalFilename] + ']")
     public WebReturn upload(@RequestParam(value = "files", required = true) MultipartFile[] files,
                             @RequestParam(required = false) String oss) {
         List<String> urls = fileService.upload(files, oss);

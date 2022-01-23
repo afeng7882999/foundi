@@ -255,7 +255,7 @@ public class LoginController {
     @ApiOperation("注册用户")
     @PostMapping("/register")
     @AnonymousAccess
-    @Log(value = "注册用户", param = "#dto.username")
+    @Log(value = "注册用户", param = "'{\"username\":\"' + #dto.username + '\"}'")
     public WebReturn register(@RequestBody @Validated RegisterDto dto) {
         loginService.register(dto);
         return WebReturn.ok();
@@ -314,7 +314,7 @@ public class LoginController {
     @GetMapping("/reset-valid")
     @AnonymousAccess
     @Resubmit(checkFor = Resubmit.CheckTarget.IP, lockKey = "#username", interval = 20)
-    @Log(value = "发送重置密码的验证码", param = "#username + ',' + #type")
+    @Log("发送重置密码的验证码")
     public WebReturn resetPasswordValid(@RequestParam @UsernameValid String username, @RequestParam String type) {
         loginService.resetPasswordValid(username, ResetPasswordType.byKey(type));
         return WebReturn.ok();
@@ -324,7 +324,7 @@ public class LoginController {
     @PutMapping("/reset-password")
     @AnonymousAccess
     @Resubmit(checkFor = Resubmit.CheckTarget.IP, lockKey = "#dto.username", interval = 20)
-    @Log(value = "重置密码", param = "#dto.username")
+    @Log(value = "重置密码", param = "'{\"username\":\"' + #dto.username + '\"}'")
     public WebReturn resetPassword(@RequestBody @Validated ResetPasswordDto dto) {
         loginService.resetPassword(dto);
         return WebReturn.ok();

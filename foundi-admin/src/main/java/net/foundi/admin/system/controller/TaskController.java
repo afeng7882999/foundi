@@ -106,7 +106,7 @@ public class TaskController extends BaseController {
     @ApiOperation("启动/停止任务")
     @GetMapping("/status")
     @PreAuthorize("@authz.hasPerm('system:task:edit')")
-    @Log(value = "启动/停止任务", param = "#cmd + ' ' + #id")
+    @Log("启动/停止任务")
     public WebReturn changeTaskStatus(@RequestParam Long id, @RequestParam String cmd) {
         TaskDo aDo = taskService.changeStatus(id, TaskConst.CMD_START.equalsIgnoreCase(cmd)
                 ? TaskConst.CMD_START
@@ -117,7 +117,7 @@ public class TaskController extends BaseController {
     @ApiOperation("立即运行任务")
     @GetMapping("/run")
     @PreAuthorize("@authz.hasPerm('system:task:edit')")
-    @Log(value = "立即运行任务", param = "#id")
+    @Log("立即运行任务")
     public WebReturn runOnceImmediately(@RequestParam Long id) {
         TaskDo aDo = taskService.runOnceImmediately(id);
         return WebReturn.ok().message("任务\""+ aDo.getJobName() + "\"运行成功");

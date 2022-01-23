@@ -6,6 +6,7 @@
 package net.foundi.framework.log;
 
 import com.alibaba.druid.support.json.JSONUtils;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import net.foundi.common.utils.lang.JsonUtils;
 import net.foundi.common.utils.lang.StringUtils;
 import net.foundi.common.utils.spring.SpELUtils;
@@ -107,7 +108,7 @@ public class LogAspect {
     /**
      * 获取请求的参数
      */
-    private String getRequestParam(JoinPoint joinPoint, Log methodLog, Method method) {
+    private String getRequestParam(JoinPoint joinPoint, Log methodLog, Method method) throws JsonProcessingException {
         String paramSpEl = methodLog.param();
         String params = "";
         if (StringUtils.hasValue(paramSpEl)) {
@@ -118,7 +119,8 @@ public class LogAspect {
                 params = paramsObject.toString();
             }
         } else {
-            params = SpELUtils.paramsMap(method, joinPoint.getArgs()).toString();
+            Map<String, Object> map = SpELUtils.paramsMap(method, joinPoint.getArgs());
+            params = JsonUtils.fromObject(map);
         }
 
         return params;
