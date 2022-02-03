@@ -75,7 +75,7 @@ public class TokenService {
 
         // 由缓存获取用户信息
         UserContext userContext = redisCache.getObject(tokenKeyOfRedis(token));
-        System.out.println(StringUtils.withPrefix("获取用户" + userContext));
+        // System.out.println(StringUtils.withPrefix("获取用户" + tokenKeyOfRedis(token)));
         return userContext;
     }
 
@@ -144,12 +144,12 @@ public class TokenService {
                 DistributedLock lock = RedisLock.create(SecurityConst.TOKEN_LOCK_PREFIX_REDIS + loginUser.getToken());
                 lock.tryLock(SecurityConst.TOKEN_LOCK_TIME, TimeUnit.MILLISECONDS);
                 if (lock.isLocked()) {
+                    String oldToken = loginUser.getToken();
                     String jwt = createToken(loginUser);
                     // 记录刷新的JWT，随后返回客户端
                     loginUser.setRefreshToken(jwt);
                     // 旧令牌准备弃用
-                    redisCache.setTtl(tokenKeyOfRedis(loginUser.getToken()), SecurityConst.OLD_TOKEN_EXPIRATION,
-                            TimeUnit.MILLISECONDS);
+                    redisCache.setTtl(tokenKeyOfRedis(oldToken), SecurityConst.OLD_TOKEN_EXPIRATION, TimeUnit.MILLISECONDS);
                 }
             } catch (Exception e) {
                 throw new SecureException("加锁异常，刷新用户令牌出错");
