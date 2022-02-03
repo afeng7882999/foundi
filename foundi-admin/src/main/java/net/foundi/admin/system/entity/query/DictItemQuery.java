@@ -19,4 +19,12 @@ public class DictItemQuery implements Query {
     /** 相等 */
     @Criterion
     private Long dictId;
+
+    /** 模糊 */
+    @Criterion(type = Criterion.Type.INNER_LIKE)
+    private String itemKey;
+
+    /** 模糊 */
+    @Criterion(type = Criterion.Type.INNER_LIKE)
+    private String itemValue;
 }
