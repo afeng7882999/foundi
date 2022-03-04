@@ -170,10 +170,10 @@ public class WebReturn extends HashMap<String, Object> {
          */
         @SuppressWarnings("rawtypes")
         public PageResult(IPage page) {
-            this.count = (int) page.getTotal();
+            this.count = (int) page.getPages();
             this.size = (int) page.getSize();
             this.current = (int) page.getCurrent();
-            this.total = (int) page.getPages();
+            this.total = (int) page.getTotal();
         }
 
         public int getCount() {
