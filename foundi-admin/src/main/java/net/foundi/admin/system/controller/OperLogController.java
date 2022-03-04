@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.OperLogDo;
 import net.foundi.admin.system.entity.dto.OperLogDto;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.OperLogQuery;
 import net.foundi.admin.system.service.OperLogService;
 import net.foundi.common.utils.web.MultipartUtils;
@@ -67,10 +68,18 @@ public class OperLogController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:operLog:export')")
-    public void export(HttpServletResponse rep, OperLogQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<OperLogDo> page = operLogService.page(getPage(), query);
+        MultipartUtils.downloadExcel(OperLogDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(OperLogDto.toMap(operLogService.list(query)), rep);
     }
 

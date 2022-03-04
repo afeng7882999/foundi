@@ -68,10 +68,18 @@ public class LoginLogController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping(value = "/export")
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
     @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
-    public void export(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<LoginLogDo> page = loginLogService.page(getPage(), query);
+        MultipartUtils.downloadExcel(LoginLogDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(LoginLogDto.toMap(loginLogService.list(query)), rep);
     }
 

@@ -13,6 +13,7 @@ import net.foundi.admin.system.entity.domain.GroupDo;
 import net.foundi.admin.system.entity.domain.MenuDo;
 import net.foundi.admin.system.entity.domain.UserDo;
 import net.foundi.admin.system.entity.dto.*;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.UserQuery;
 import net.foundi.admin.system.service.GroupService;
 import net.foundi.admin.system.service.MenuService;
@@ -131,10 +132,18 @@ public class UserController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @PreAuthorize("@authz.hasPerm('system:user:export')")
-    @GetMapping("/export")
-    public void export(HttpServletResponse rep, UserQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<UserDo> page = userService.page(getPage(), query);
+        MultipartUtils.downloadExcel(UserDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(UserDto.toMap(userService.list(query)), rep);
     }
 

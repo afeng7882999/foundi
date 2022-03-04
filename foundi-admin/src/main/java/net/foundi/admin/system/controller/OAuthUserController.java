@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.OAuthUserDo;
 import net.foundi.admin.system.entity.dto.OAuthUserDto;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.OAuthUserQuery;
 import net.foundi.admin.system.service.OAuthUserService;
 import net.foundi.common.utils.web.MultipartUtils;
@@ -95,10 +96,18 @@ public class OAuthUserController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:oauthUser:export')")
-    public void export(HttpServletResponse rep, OAuthUserQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<OAuthUserDo> page = oauthUserService.page(getPage(), query);
+        MultipartUtils.downloadExcel(OAuthUserDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(OAuthUserDto.toMap(oauthUserService.list(query)), rep);
     }
 

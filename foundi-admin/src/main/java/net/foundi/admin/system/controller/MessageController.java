@@ -13,6 +13,7 @@ import net.foundi.admin.system.entity.domain.MessageDo;
 import net.foundi.admin.system.entity.domain.UserMessageDo;
 import net.foundi.admin.system.entity.dto.MessageDto;
 import net.foundi.admin.system.entity.enums.MessageStatus;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.MessageQuery;
 import net.foundi.admin.system.entity.query.UserMessageQuery;
 import net.foundi.admin.system.service.MessageService;
@@ -101,10 +102,18 @@ public class MessageController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:message:export')")
-    public void export(HttpServletResponse rep, MessageQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<MessageDo> page = messageService.page(getPage(), query);
+        MultipartUtils.downloadExcel(MessageDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(MessageDto.toMap(messageService.list(query)), rep);
     }
 

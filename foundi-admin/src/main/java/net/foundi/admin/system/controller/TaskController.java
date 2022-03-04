@@ -8,8 +8,11 @@ package net.foundi.admin.system.controller;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import net.foundi.admin.system.entity.domain.RoleDo;
 import net.foundi.admin.system.entity.domain.TaskDo;
+import net.foundi.admin.system.entity.dto.RoleDto;
 import net.foundi.admin.system.entity.dto.TaskDto;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.TaskQuery;
 import net.foundi.admin.system.service.TaskService;
 import net.foundi.common.utils.web.MultipartUtils;
@@ -96,13 +99,6 @@ public class TaskController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:task:export')")
-    public void export(HttpServletResponse rep, TaskQuery query) throws IOException {
-        MultipartUtils.downloadExcel(TaskDto.toMap(taskService.list(query)), rep);
-    }
-
     @ApiOperation("启动/停止任务")
     @GetMapping("/status")
     @PreAuthorize("@authz.hasPerm('system:task:edit')")
@@ -121,6 +117,21 @@ public class TaskController extends BaseController {
     public WebReturn runOnceImmediately(@RequestParam Long id) {
         TaskDo aDo = taskService.runOnceImmediately(id);
         return WebReturn.ok().message("任务\""+ aDo.getJobName() + "\"运行成功");
+    }
+
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<TaskDo> page = taskService.page(getPage(), query);
+        MultipartUtils.downloadExcel(TaskDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        MultipartUtils.downloadExcel(TaskDto.toMap(taskService.list(query)), rep);
     }
 
 }

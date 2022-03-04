@@ -10,6 +10,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.RoleDo;
 import net.foundi.admin.system.entity.dto.RoleDto;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.RoleQuery;
 import net.foundi.admin.system.service.RoleService;
 import net.foundi.common.utils.web.MultipartUtils;
@@ -95,10 +96,18 @@ public class RoleController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:role:export')")
-    public void export(HttpServletResponse rep, RoleQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<RoleDo> page = roleService.page(getPage(), query);
+        MultipartUtils.downloadExcel(RoleDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(RoleDto.toMap(roleService.list(query)), rep);
     }
 

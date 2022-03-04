@@ -5,11 +5,13 @@
 
 package net.foundi.admin.system.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.MenuDo;
 import net.foundi.admin.system.entity.dto.DictItemDto;
 import net.foundi.admin.system.entity.dto.MenuDto;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.entity.query.MenuQuery;
 import net.foundi.admin.system.service.DictItemService;
 import net.foundi.admin.system.service.MenuService;
@@ -110,10 +112,18 @@ public class MenuController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:menu:export')")
-    public void export(HttpServletResponse rep, MenuQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<MenuDo> page = menuService.page(getPage(), query);
+        MultipartUtils.downloadExcel(MenuDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(MenuDto.toMap(menuService.list(query)), rep);
     }
 

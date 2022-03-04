@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.DictDo;
 import net.foundi.admin.system.entity.dto.DictDto;
 import net.foundi.admin.system.entity.query.DictQuery;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.service.DictService;
 import net.foundi.common.utils.web.MultipartUtils;
 import net.foundi.framework.entity.validation.AddGroup;
@@ -95,10 +96,18 @@ public class DictController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping(value = "/export")
-    @PreAuthorize("@authz.hasPerm('system:dict:export')")
-    public void export(HttpServletResponse rep, DictQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<DictDo> page = dictService.page(getPage(), query);
+        MultipartUtils.downloadExcel(DictDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(DictDto.toMap(dictService.list(query)), rep);
     }
 

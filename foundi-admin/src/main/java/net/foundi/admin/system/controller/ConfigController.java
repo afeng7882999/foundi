@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.ConfigDo;
 import net.foundi.admin.system.entity.dto.ConfigDto;
 import net.foundi.admin.system.entity.query.ConfigQuery;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.service.ConfigService;
 import net.foundi.common.utils.web.MultipartUtils;
 import net.foundi.framework.entity.validation.AddGroup;
@@ -95,10 +96,18 @@ public class ConfigController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:config:export')")
-    public void export(HttpServletResponse rep, ConfigQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<ConfigDo> page = configService.page(getPage(), query);
+        MultipartUtils.downloadExcel(ConfigDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(ConfigDto.toMap(configService.list(query)), rep);
     }
 

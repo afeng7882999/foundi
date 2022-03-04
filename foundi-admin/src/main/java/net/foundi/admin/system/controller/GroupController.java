@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import net.foundi.admin.system.entity.domain.GroupDo;
 import net.foundi.admin.system.entity.dto.GroupDto;
 import net.foundi.admin.system.entity.query.GroupQuery;
+import net.foundi.admin.system.entity.query.LoginLogQuery;
 import net.foundi.admin.system.service.GroupService;
 import net.foundi.common.utils.web.MultipartUtils;
 import net.foundi.framework.entity.dto.TreeDto;
@@ -105,10 +106,18 @@ public class GroupController extends BaseController {
         return WebReturn.ok();
     }
 
-    @ApiOperation("导出数据")
-    @GetMapping("/export")
-    @PreAuthorize("@authz.hasPerm('system:group:export')")
-    public void export(HttpServletResponse rep, GroupQuery query) throws IOException {
+    @ApiOperation("导出当前页数据")
+    @GetMapping(value = "/exportPage")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportPage(HttpServletResponse rep, LoginLogQuery query) throws IOException {
+        IPage<GroupDo> page = groupService.page(getPage(), query);
+        MultipartUtils.downloadExcel(GroupDto.toMap(page.getRecords()), rep);
+    }
+
+    @ApiOperation("导出全部数据")
+    @GetMapping(value = "/exportAll")
+    @PreAuthorize("@authz.hasPerm('system:loginLog:export')")
+    public void exportAll(HttpServletResponse rep, LoginLogQuery query) throws IOException {
         MultipartUtils.downloadExcel(GroupDto.toMap(groupService.list(query)), rep);
     }
 
