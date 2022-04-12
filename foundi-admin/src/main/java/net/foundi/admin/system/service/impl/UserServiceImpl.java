@@ -205,7 +205,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDao, UserDo> implements
     @Override
     public Boolean checkNoDuplicate(Long id, SFunction<UserDo, ?> column, Object val) {
         LambdaQueryWrapper<UserDo> qw = new QueryWrapper<UserDo>().lambda().eq(column, val);
-        if (id == null) {
+        if (id != null) {
             qw.ne(UserDo::getId, id);
         }
         return this.count(qw) == 0;

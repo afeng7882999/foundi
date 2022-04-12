@@ -159,7 +159,7 @@ public class UserController extends BaseController {
     @ApiOperation("检测用户EMail")
     @GetMapping("/email/check")
     @PreAuthorize("@authz.hasPerm('system:user:edit')")
-    public WebReturn checkEmail(@RequestParam Long id,
+    public WebReturn checkEmail(@RequestParam(required = false) Long id,
                                 @RequestParam @Email String email) {
         return WebReturn.ok()
                 .content(userService.checkNoDuplicate(id, UserDo::getEmail, email));
@@ -168,7 +168,7 @@ public class UserController extends BaseController {
     @ApiOperation("检测用户手机号")
     @GetMapping("/mobile/check")
     @PreAuthorize("@authz.hasPerm('system:user:edit')")
-    public WebReturn checkMobile(@RequestParam Long id,
+    public WebReturn checkMobile(@RequestParam(required = false) Long id,
                                  @RequestParam @PhoneValid String mobile) {
         return WebReturn.ok()
                 .content(userService.checkNoDuplicate(id, UserDo::getMobile, mobile));
